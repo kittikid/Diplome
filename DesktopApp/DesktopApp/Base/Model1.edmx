@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище RegProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="finsupportsall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fo2019" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="fo2020" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="fo2021" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="fo2022" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="fo2023" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="fo2024" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="finsource" Type="nvarchar" MaxLength="500" />
+          <Property Name="fo_total" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="finsourcecode" Type="nvarchar" MaxLength="500" />
+          <Property Name="metaid_rp" Type="bigint" />
+        </EntityType>
+        <EntityType Name="participants">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="bigint" Nullable="false" />
+          <Property Name="recordid" Type="bigint" />
+          <Property Name="fio" Type="nvarchar" MaxLength="500" />
+          <Property Name="headpost" Type="nvarchar" MaxLength="500" />
+          <Property Name="immsupervisor" Type="nvarchar" MaxLength="500" />
+          <Property Name="percemploy" Type="int" />
+          <Property Name="roleinproj" Type="nvarchar" MaxLength="500" />
+          <Property Name="codereestr" Type="nvarchar" MaxLength="500" />
+          <Property Name="metaid_rp" Type="bigint" />
+        </EntityType>
+        <EntityType Name="purposemonthdistribution">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="year" Type="smallint" Nullable="false" />
+          <Property Name="mrk02" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk03" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk04" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk05" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk06" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk07" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk08" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk09" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk10" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk11" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrk12" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="mrkendyaer" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="after0112" Type="int" />
+          <Property Name="reasonsmo" Type="nvarchar" MaxLength="500" />
+          <Property Name="recordid" Type="bigint" Nullable="false" />
+          <Property Name="metaid_purposes" Type="bigint" />
+        </EntityType>
+        <EntityType Name="purposes">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="bigint" Nullable="false" />
+          <Property Name="recordid" Type="bigint" />
+          <Property Name="mrkname" Type="nvarchar" MaxLength="500" />
+          <Property Name="code" Type="int" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="typemrk" Type="nvarchar" MaxLength="500" />
+          <Property Name="typevaluemrk" Type="nvarchar" MaxLength="500" />
+          <Property Name="okeicode" Type="int" />
+          <Property Name="okeiname" Type="nvarchar" MaxLength="500" />
+          <Property Name="basicvalueind" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2018" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2019" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2020" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2021" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2022" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2023" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2024" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2025" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2026" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2027" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2028" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2029" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="value2030" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="dockind" Type="nvarchar" MaxLength="500" />
+          <Property Name="approgv" Type="nvarchar" MaxLength="500" />
+          <Property Name="approvtdatenpa" Type="nvarchar" MaxLength="500" />
+          <Property Name="numbernpa" Type="nvarchar" MaxLength="500" />
+          <Property Name="namenpa" Type="nvarchar(max)" />
+          <Property Name="sourcedata" Type="nvarchar" MaxLength="500" />
+          <Property Name="fpmrkid" Type="nvarchar" MaxLength="500" />
+          <Property Name="fpmrkname" Type="nvarchar" MaxLength="500" />
+          <Property Name="tasksrecordid" Type="bigint" />
+          <Property Name="taskcode" Type="int" />
+          <Property Name="taskname" Type="nvarchar" MaxLength="500" />
+          <Property Name="taskrespexec" Type="nvarchar" MaxLength="500" />
+          <Property Name="targettype" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrname" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrnum" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrbeneficiar" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrokeicode" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrokeiname" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrtype" Type="nvarchar" MaxLength="500" />
+          <Property Name="yearend" Type="int" />
+          <Property Name="establishact" Type="int" />
+          <Property Name="lvlmrk" Type="int" />
+          <Property Name="purposemonthdistribution" Type="int" />
+          <Property Name="metaid_rp" Type="bigint" />
+        </EntityType>
+        <EntityType Name="RegProjectTable">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="bigint" Nullable="false" />
+          <Property Name="recordid" Type="bigint" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="500" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="500" />
+          <Property Name="shortname" Type="nvarchar" MaxLength="500" />
+          <Property Name="idfp" Type="smallint" />
+          <Property Name="fpcode" Type="nvarchar" MaxLength="500" />
+          <Property Name="fpname" Type="nvarchar" MaxLength="500" />
+          <Property Name="curator" Type="nvarchar" MaxLength="500" />
+          <Property Name="person" Type="nvarchar" MaxLength="500" />
+          <Property Name="kvsr" Type="nvarchar" MaxLength="500" />
+          <Property Name="actualversion" Type="nvarchar" MaxLength="500" />
+          <Property Name="subject" Type="int" />
+          <Property Name="roiv" Type="bigint" />
+          <Property Name="purposes" Type="int" />
+          <Property Name="tasks" Type="int" />
+          <Property Name="participants" Type="int" />
+          <Property Name="finsupportsall" Type="int" />
+        </EntityType>
+        <EntityType Name="results">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="bigint" Nullable="false" />
+          <Property Name="recordid" Type="bigint" />
+          <Property Name="code" Type="int" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="basicvalue" Type="nvarchar" MaxLength="500" />
+          <Property Name="monetary_result" Type="int" />
+          <Property Name="fpresult" Type="nvarchar" MaxLength="500" />
+          <Property Name="respexec" Type="nvarchar" MaxLength="500" />
+          <Property Name="orgrespexec" Type="nvarchar" MaxLength="500" />
+          <Property Name="numbercharact" Type="nvarchar(max)" />
+          <Property Name="typeres" Type="nvarchar" MaxLength="500" />
+          <Property Name="kindres" Type="nvarchar" MaxLength="500" />
+          <Property Name="realizemo" Type="int" />
+          <Property Name="notsubjfund" Type="int" />
+          <Property Name="subjfund" Type="int" />
+          <Property Name="iskey" Type="nvarchar" MaxLength="500" />
+          <Property Name="okeicode" Type="smallint" />
+          <Property Name="okeiname" Type="nvarchar" MaxLength="500" />
+          <Property Name="sourcedata" Type="nvarchar" MaxLength="500" />
+          <Property Name="cumulative" Type="int" />
+          <Property Name="cbaccumulationtype" Type="nvarchar" MaxLength="500" />
+          <Property Name="typevaluemrk" Type="nvarchar" MaxLength="500" />
+          <Property Name="costwaycode" Type="nvarchar" MaxLength="500" />
+          <Property Name="directionexpenses" Type="nvarchar" MaxLength="500" />
+          <Property Name="direxpcoderesf" Type="nvarchar" MaxLength="500" />
+          <Property Name="direxpnameresf" Type="nvarchar" MaxLength="500" />
+          <Property Name="executpost" Type="nvarchar" MaxLength="500" />
+          <Property Name="metaid_task" Type="bigint" />
+        </EntityType>
+        <EntityType Name="roiv">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="int" Nullable="false" />
+          <Property Name="code" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tasks">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="bigint" Nullable="false" />
+          <Property Name="recordid" Type="bigint" />
+          <Property Name="name" Type="nvarchar" MaxLength="500" />
+          <Property Name="code" Type="int" />
+          <Property Name="nprecordid" Type="nvarchar" MaxLength="500" />
+          <Property Name="targettype" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrrecordid" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrname" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrnum" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrbeneficiar" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrokeicode" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrokeiname" Type="nvarchar" MaxLength="500" />
+          <Property Name="ozrtype" Type="nvarchar" MaxLength="500" />
+          <Property Name="result" Type="bigint" />
+          <Property Name="metaid_rp" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_finsupportsall_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="finsupportsall" Type="Self.finsupportsall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="finsupportsall">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_participants_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="participants" Type="Self.participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="participants">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purposemonthdistribution_purposes">
+          <End Role="purposes" Type="Self.purposes" Multiplicity="0..1" />
+          <End Role="purposemonthdistribution" Type="Self.purposemonthdistribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purposes">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="purposemonthdistribution">
+              <PropertyRef Name="metaid_purposes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purposes_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="purposes" Type="Self.purposes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="purposes">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegProject_subject">
+          <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="recordid" />
+            </Principal>
+            <Dependent Role="RegProjectTable">
+              <PropertyRef Name="subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_tasks">
+          <End Role="tasks" Type="Self.tasks" Multiplicity="0..1" />
+          <End Role="results" Type="Self.results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tasks">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="results">
+              <PropertyRef Name="metaid_task" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tasks_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="tasks" Type="Self.tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="tasks">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище RegProjectModelContainer">
+          <EntitySet Name="finsupportsall" EntityType="Self.finsupportsall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="participants" EntityType="Self.participants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purposemonthdistribution" EntityType="Self.purposemonthdistribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purposes" EntityType="Self.purposes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegProjectTable" EntityType="Self.RegProjectTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="results" EntityType="Self.results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roiv" EntityType="Self.roiv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subject" EntityType="Self.subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tasks" EntityType="Self.tasks" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_finsupportsall_RegProject" Association="Self.FK_finsupportsall_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="finsupportsall" EntitySet="finsupportsall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_participants_RegProject" Association="Self.FK_participants_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="participants" EntitySet="participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purposemonthdistribution_purposes" Association="Self.FK_purposemonthdistribution_purposes">
+            <End Role="purposes" EntitySet="purposes" />
+            <End Role="purposemonthdistribution" EntitySet="purposemonthdistribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purposes_RegProject" Association="Self.FK_purposes_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="purposes" EntitySet="purposes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegProject_subject" Association="Self.FK_RegProject_subject">
+            <End Role="subject" EntitySet="subject" />
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_tasks" Association="Self.FK_results_tasks">
+            <End Role="tasks" EntitySet="tasks" />
+            <End Role="results" EntitySet="results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tasks_RegProject" Association="Self.FK_tasks_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="tasks" EntitySet="tasks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="finsupportsall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fo2019" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="fo2020" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="fo2021" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="fo2022" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="fo2023" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="fo2024" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="finsource" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fo_total" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="finsourcecode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="metaid_rp" Type="Int64" />
+          <NavigationProperty Name="RegProjectTable" Relationship="Self.FK_finsupportsall_RegProject" FromRole="finsupportsall" ToRole="RegProjectTable" />
+        </EntityType>
+        <EntityType Name="participants">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="Int64" Nullable="false" />
+          <Property Name="recordid" Type="Int64" />
+          <Property Name="fio" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="headpost" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="immsupervisor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="percemploy" Type="Int32" />
+          <Property Name="roleinproj" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="codereestr" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="metaid_rp" Type="Int64" />
+          <NavigationProperty Name="RegProjectTable" Relationship="Self.FK_participants_RegProject" FromRole="participants" ToRole="RegProjectTable" />
+        </EntityType>
+        <EntityType Name="purposemonthdistribution">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="year" Type="Int16" Nullable="false" />
+          <Property Name="mrk02" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk03" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk04" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk05" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk06" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk07" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk08" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk09" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk10" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk11" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrk12" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="mrkendyaer" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="after0112" Type="Int32" />
+          <Property Name="reasonsmo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="recordid" Type="Int64" Nullable="false" />
+          <Property Name="metaid_purposes" Type="Int64" />
+          <NavigationProperty Name="purposes" Relationship="Self.FK_purposemonthdistribution_purposes" FromRole="purposemonthdistribution" ToRole="purposes" />
+        </EntityType>
+        <EntityType Name="purposes">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="Int64" Nullable="false" />
+          <Property Name="recordid" Type="Int64" />
+          <Property Name="mrkname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="typemrk" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="typevaluemrk" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="okeicode" Type="Int32" />
+          <Property Name="okeiname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="basicvalueind" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2018" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2019" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2020" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2021" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2022" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2023" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2024" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2025" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2026" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2027" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2028" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2029" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="value2030" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="dockind" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="approgv" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="approvtdatenpa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="numbernpa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="namenpa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sourcedata" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fpmrkid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fpmrkname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="tasksrecordid" Type="Int64" />
+          <Property Name="taskcode" Type="Int32" />
+          <Property Name="taskname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="taskrespexec" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="targettype" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrnum" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrbeneficiar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrokeicode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrokeiname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrtype" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="yearend" Type="Int32" />
+          <Property Name="establishact" Type="Int32" />
+          <Property Name="lvlmrk" Type="Int32" />
+          <Property Name="purposemonthdistribution" Type="Int32" />
+          <Property Name="metaid_rp" Type="Int64" />
+          <NavigationProperty Name="purposemonthdistribution1" Relationship="Self.FK_purposemonthdistribution_purposes" FromRole="purposes" ToRole="purposemonthdistribution" />
+          <NavigationProperty Name="RegProjectTable" Relationship="Self.FK_purposes_RegProject" FromRole="purposes" ToRole="RegProjectTable" />
+        </EntityType>
+        <EntityType Name="RegProjectTable">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="Int64" Nullable="false" />
+          <Property Name="recordid" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fullname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="shortname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="idfp" Type="Int16" />
+          <Property Name="fpcode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fpname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="curator" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="person" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="kvsr" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="actualversion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="Int32" />
+          <Property Name="roiv" Type="Int64" />
+          <Property Name="purposes" Type="Int32" />
+          <Property Name="tasks" Type="Int32" />
+          <Property Name="participants" Type="Int32" />
+          <Property Name="finsupportsall" Type="Int32" />
+          <NavigationProperty Name="finsupportsall1" Relationship="Self.FK_finsupportsall_RegProject" FromRole="RegProjectTable" ToRole="finsupportsall" />
+          <NavigationProperty Name="participants1" Relationship="Self.FK_participants_RegProject" FromRole="RegProjectTable" ToRole="participants" />
+          <NavigationProperty Name="purposes1" Relationship="Self.FK_purposes_RegProject" FromRole="RegProjectTable" ToRole="purposes" />
+          <NavigationProperty Name="subject1" Relationship="Self.FK_RegProject_subject" FromRole="RegProjectTable" ToRole="subject" />
+          <NavigationProperty Name="tasks1" Relationship="Self.FK_tasks_RegProject" FromRole="RegProjectTable" ToRole="tasks" />
+        </EntityType>
+        <EntityType Name="results">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="Int64" Nullable="false" />
+          <Property Name="recordid" Type="Int64" />
+          <Property Name="code" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="basicvalue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="monetary_result" Type="Int32" />
+          <Property Name="fpresult" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="respexec" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="orgrespexec" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="numbercharact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="typeres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="kindres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="realizemo" Type="Int32" />
+          <Property Name="notsubjfund" Type="Int32" />
+          <Property Name="subjfund" Type="Int32" />
+          <Property Name="iskey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="okeicode" Type="Int16" />
+          <Property Name="okeiname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="sourcedata" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="cumulative" Type="Int32" />
+          <Property Name="cbaccumulationtype" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="typevaluemrk" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="costwaycode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="directionexpenses" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="direxpcoderesf" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="direxpnameresf" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="executpost" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="metaid_task" Type="Int64" />
+          <NavigationProperty Name="tasks" Relationship="Self.FK_results_tasks" FromRole="results" ToRole="tasks" />
+        </EntityType>
+        <EntityType Name="roiv">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RegProjectTable" Relationship="Self.FK_RegProject_subject" FromRole="subject" ToRole="RegProjectTable" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tasks">
+          <Key>
+            <PropertyRef Name="metaid" />
+          </Key>
+          <Property Name="metaid" Type="Int64" Nullable="false" />
+          <Property Name="recordid" Type="Int64" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="Int32" />
+          <Property Name="nprecordid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="targettype" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrrecordid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrnum" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrbeneficiar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrokeicode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrokeiname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ozrtype" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="result" Type="Int64" />
+          <Property Name="metaid_rp" Type="Int64" />
+          <NavigationProperty Name="RegProjectTable" Relationship="Self.FK_tasks_RegProject" FromRole="tasks" ToRole="RegProjectTable" />
+          <NavigationProperty Name="results" Relationship="Self.FK_results_tasks" FromRole="tasks" ToRole="results" />
+        </EntityType>
+        <Association Name="FK_finsupportsall_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="finsupportsall" Type="Self.finsupportsall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="finsupportsall">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_participants_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="participants" Type="Self.participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="participants">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purposemonthdistribution_purposes">
+          <End Role="purposes" Type="Self.purposes" Multiplicity="0..1" />
+          <End Role="purposemonthdistribution" Type="Self.purposemonthdistribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purposes">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="purposemonthdistribution">
+              <PropertyRef Name="metaid_purposes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purposes_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="purposes" Type="Self.purposes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="purposes">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegProject_subject">
+          <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="recordid" />
+            </Principal>
+            <Dependent Role="RegProjectTable">
+              <PropertyRef Name="subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tasks_RegProject">
+          <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
+          <End Role="tasks" Type="Self.tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegProjectTable">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="tasks">
+              <PropertyRef Name="metaid_rp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_tasks">
+          <End Role="tasks" Type="Self.tasks" Multiplicity="0..1" />
+          <End Role="results" Type="Self.results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tasks">
+              <PropertyRef Name="metaid" />
+            </Principal>
+            <Dependent Role="results">
+              <PropertyRef Name="metaid_task" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RegProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="finsupportsall" EntityType="Self.finsupportsall" />
+          <EntitySet Name="participants" EntityType="Self.participants" />
+          <EntitySet Name="purposemonthdistribution" EntityType="Self.purposemonthdistribution" />
+          <EntitySet Name="purposes" EntityType="Self.purposes" />
+          <EntitySet Name="RegProjectTable" EntityType="Self.RegProjectTable" />
+          <EntitySet Name="results" EntityType="Self.results" />
+          <EntitySet Name="roiv" EntityType="Self.roiv" />
+          <EntitySet Name="subject" EntityType="Self.subject" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tasks" EntityType="Self.tasks" />
+          <AssociationSet Name="FK_finsupportsall_RegProject" Association="Self.FK_finsupportsall_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="finsupportsall" EntitySet="finsupportsall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_participants_RegProject" Association="Self.FK_participants_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="participants" EntitySet="participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purposemonthdistribution_purposes" Association="Self.FK_purposemonthdistribution_purposes">
+            <End Role="purposes" EntitySet="purposes" />
+            <End Role="purposemonthdistribution" EntitySet="purposemonthdistribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purposes_RegProject" Association="Self.FK_purposes_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="purposes" EntitySet="purposes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegProject_subject" Association="Self.FK_RegProject_subject">
+            <End Role="subject" EntitySet="subject" />
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tasks_RegProject" Association="Self.FK_tasks_RegProject">
+            <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+            <End Role="tasks" EntitySet="tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_tasks" Association="Self.FK_results_tasks">
+            <End Role="tasks" EntitySet="tasks" />
+            <End Role="results" EntitySet="results" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RegProjectModelContainer" CdmEntityContainer="RegProjectEntities">
+          <EntitySetMapping Name="finsupportsall">
+            <EntityTypeMapping TypeName="RegProjectModel.finsupportsall">
+              <MappingFragment StoreEntitySet="finsupportsall">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fo2019" ColumnName="fo2019" />
+                <ScalarProperty Name="fo2020" ColumnName="fo2020" />
+                <ScalarProperty Name="fo2021" ColumnName="fo2021" />
+                <ScalarProperty Name="fo2022" ColumnName="fo2022" />
+                <ScalarProperty Name="fo2023" ColumnName="fo2023" />
+                <ScalarProperty Name="fo2024" ColumnName="fo2024" />
+                <ScalarProperty Name="finsource" ColumnName="finsource" />
+                <ScalarProperty Name="fo_total" ColumnName="fo_total" />
+                <ScalarProperty Name="finsourcecode" ColumnName="finsourcecode" />
+                <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="participants">
+            <EntityTypeMapping TypeName="RegProjectModel.participants">
+              <MappingFragment StoreEntitySet="participants">
+                <ScalarProperty Name="metaid" ColumnName="metaid" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="headpost" ColumnName="headpost" />
+                <ScalarProperty Name="immsupervisor" ColumnName="immsupervisor" />
+                <ScalarProperty Name="percemploy" ColumnName="percemploy" />
+                <ScalarProperty Name="roleinproj" ColumnName="roleinproj" />
+                <ScalarProperty Name="codereestr" ColumnName="codereestr" />
+                <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purposemonthdistribution">
+            <EntityTypeMapping TypeName="RegProjectModel.purposemonthdistribution">
+              <MappingFragment StoreEntitySet="purposemonthdistribution">
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="mrk02" ColumnName="mrk02" />
+                <ScalarProperty Name="mrk03" ColumnName="mrk03" />
+                <ScalarProperty Name="mrk04" ColumnName="mrk04" />
+                <ScalarProperty Name="mrk05" ColumnName="mrk05" />
+                <ScalarProperty Name="mrk06" ColumnName="mrk06" />
+                <ScalarProperty Name="mrk07" ColumnName="mrk07" />
+                <ScalarProperty Name="mrk08" ColumnName="mrk08" />
+                <ScalarProperty Name="mrk09" ColumnName="mrk09" />
+                <ScalarProperty Name="mrk10" ColumnName="mrk10" />
+                <ScalarProperty Name="mrk11" ColumnName="mrk11" />
+                <ScalarProperty Name="mrk12" ColumnName="mrk12" />
+                <ScalarProperty Name="mrkendyaer" ColumnName="mrkendyaer" />
+                <ScalarProperty Name="after0112" ColumnName="after0112" />
+                <ScalarProperty Name="reasonsmo" ColumnName="reasonsmo" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="metaid_purposes" ColumnName="metaid_purposes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purposes">
+            <EntityTypeMapping TypeName="RegProjectModel.purposes">
+              <MappingFragment StoreEntitySet="purposes">
+                <ScalarProperty Name="metaid" ColumnName="metaid" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="mrkname" ColumnName="mrkname" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="typemrk" ColumnName="typemrk" />
+                <ScalarProperty Name="typevaluemrk" ColumnName="typevaluemrk" />
+                <ScalarProperty Name="okeicode" ColumnName="okeicode" />
+                <ScalarProperty Name="okeiname" ColumnName="okeiname" />
+                <ScalarProperty Name="basicvalueind" ColumnName="basicvalueind" />
+                <ScalarProperty Name="value2018" ColumnName="value2018" />
+                <ScalarProperty Name="value2019" ColumnName="value2019" />
+                <ScalarProperty Name="value2020" ColumnName="value2020" />
+                <ScalarProperty Name="value2021" ColumnName="value2021" />
+                <ScalarProperty Name="value2022" ColumnName="value2022" />
+                <ScalarProperty Name="value2023" ColumnName="value2023" />
+                <ScalarProperty Name="value2024" ColumnName="value2024" />
+                <ScalarProperty Name="value2025" ColumnName="value2025" />
+                <ScalarProperty Name="value2026" ColumnName="value2026" />
+                <ScalarProperty Name="value2027" ColumnName="value2027" />
+                <ScalarProperty Name="value2028" ColumnName="value2028" />
+                <ScalarProperty Name="value2029" ColumnName="value2029" />
+                <ScalarProperty Name="value2030" ColumnName="value2030" />
+                <ScalarProperty Name="dockind" ColumnName="dockind" />
+                <ScalarProperty Name="approgv" ColumnName="approgv" />
+                <ScalarProperty Name="approvtdatenpa" ColumnName="approvtdatenpa" />
+                <ScalarProperty Name="numbernpa" ColumnName="numbernpa" />
+                <ScalarProperty Name="namenpa" ColumnName="namenpa" />
+                <ScalarProperty Name="sourcedata" ColumnName="sourcedata" />
+                <ScalarProperty Name="fpmrkid" ColumnName="fpmrkid" />
+                <ScalarProperty Name="fpmrkname" ColumnName="fpmrkname" />
+                <ScalarProperty Name="tasksrecordid" ColumnName="tasksrecordid" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="taskname" ColumnName="taskname" />
+                <ScalarProperty Name="taskrespexec" ColumnName="taskrespexec" />
+                <ScalarProperty Name="targettype" ColumnName="targettype" />
+                <ScalarProperty Name="ozrname" ColumnName="ozrname" />
+                <ScalarProperty Name="ozrnum" ColumnName="ozrnum" />
+                <ScalarProperty Name="ozrbeneficiar" ColumnName="ozrbeneficiar" />
+                <ScalarProperty Name="ozrokeicode" ColumnName="ozrokeicode" />
+                <ScalarProperty Name="ozrokeiname" ColumnName="ozrokeiname" />
+                <ScalarProperty Name="ozrtype" ColumnName="ozrtype" />
+                <ScalarProperty Name="yearend" ColumnName="yearend" />
+                <ScalarProperty Name="establishact" ColumnName="establishact" />
+                <ScalarProperty Name="lvlmrk" ColumnName="lvlmrk" />
+                <ScalarProperty Name="purposemonthdistribution" ColumnName="purposemonthdistribution" />
+                <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegProjectTable">
+            <EntityTypeMapping TypeName="RegProjectModel.RegProjectTable">
+              <MappingFragment StoreEntitySet="RegProjectTable">
+                <ScalarProperty Name="metaid" ColumnName="metaid" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="shortname" ColumnName="shortname" />
+                <ScalarProperty Name="idfp" ColumnName="idfp" />
+                <ScalarProperty Name="fpcode" ColumnName="fpcode" />
+                <ScalarProperty Name="fpname" ColumnName="fpname" />
+                <ScalarProperty Name="curator" ColumnName="curator" />
+                <ScalarProperty Name="person" ColumnName="person" />
+                <ScalarProperty Name="kvsr" ColumnName="kvsr" />
+                <ScalarProperty Name="actualversion" ColumnName="actualversion" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="roiv" ColumnName="roiv" />
+                <ScalarProperty Name="purposes" ColumnName="purposes" />
+                <ScalarProperty Name="tasks" ColumnName="tasks" />
+                <ScalarProperty Name="participants" ColumnName="participants" />
+                <ScalarProperty Name="finsupportsall" ColumnName="finsupportsall" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results">
+            <EntityTypeMapping TypeName="RegProjectModel.results">
+              <MappingFragment StoreEntitySet="results">
+                <ScalarProperty Name="metaid" ColumnName="metaid" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="basicvalue" ColumnName="basicvalue" />
+                <ScalarProperty Name="monetary_result" ColumnName="monetary_result" />
+                <ScalarProperty Name="fpresult" ColumnName="fpresult" />
+                <ScalarProperty Name="respexec" ColumnName="respexec" />
+                <ScalarProperty Name="orgrespexec" ColumnName="orgrespexec" />
+                <ScalarProperty Name="numbercharact" ColumnName="numbercharact" />
+                <ScalarProperty Name="typeres" ColumnName="typeres" />
+                <ScalarProperty Name="kindres" ColumnName="kindres" />
+                <ScalarProperty Name="realizemo" ColumnName="realizemo" />
+                <ScalarProperty Name="notsubjfund" ColumnName="notsubjfund" />
+                <ScalarProperty Name="subjfund" ColumnName="subjfund" />
+                <ScalarProperty Name="iskey" ColumnName="iskey" />
+                <ScalarProperty Name="okeicode" ColumnName="okeicode" />
+                <ScalarProperty Name="okeiname" ColumnName="okeiname" />
+                <ScalarProperty Name="sourcedata" ColumnName="sourcedata" />
+                <ScalarProperty Name="cumulative" ColumnName="cumulative" />
+                <ScalarProperty Name="cbaccumulationtype" ColumnName="cbaccumulationtype" />
+                <ScalarProperty Name="typevaluemrk" ColumnName="typevaluemrk" />
+                <ScalarProperty Name="costwaycode" ColumnName="costwaycode" />
+                <ScalarProperty Name="directionexpenses" ColumnName="directionexpenses" />
+                <ScalarProperty Name="direxpcoderesf" ColumnName="direxpcoderesf" />
+                <ScalarProperty Name="direxpnameresf" ColumnName="direxpnameresf" />
+                <ScalarProperty Name="executpost" ColumnName="executpost" />
+                <ScalarProperty Name="metaid_task" ColumnName="metaid_task" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roiv">
+            <EntityTypeMapping TypeName="RegProjectModel.roiv">
+              <MappingFragment StoreEntitySet="roiv">
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subject">
+            <EntityTypeMapping TypeName="RegProjectModel.subject">
+              <MappingFragment StoreEntitySet="subject">
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RegProjectModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tasks">
+            <EntityTypeMapping TypeName="RegProjectModel.tasks">
+              <MappingFragment StoreEntitySet="tasks">
+                <ScalarProperty Name="metaid" ColumnName="metaid" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="nprecordid" ColumnName="nprecordid" />
+                <ScalarProperty Name="targettype" ColumnName="targettype" />
+                <ScalarProperty Name="ozrrecordid" ColumnName="ozrrecordid" />
+                <ScalarProperty Name="ozrname" ColumnName="ozrname" />
+                <ScalarProperty Name="ozrnum" ColumnName="ozrnum" />
+                <ScalarProperty Name="ozrbeneficiar" ColumnName="ozrbeneficiar" />
+                <ScalarProperty Name="ozrokeicode" ColumnName="ozrokeicode" />
+                <ScalarProperty Name="ozrokeiname" ColumnName="ozrokeiname" />
+                <ScalarProperty Name="ozrtype" ColumnName="ozrtype" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

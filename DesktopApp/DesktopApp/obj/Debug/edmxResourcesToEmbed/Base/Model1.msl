@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище RegProjectModelContainer" CdmEntityContainer="RegProjectEntities">
+    <EntitySetMapping Name="finsupportsall">
+      <EntityTypeMapping TypeName="RegProjectModel.finsupportsall">
+        <MappingFragment StoreEntitySet="finsupportsall">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fo2019" ColumnName="fo2019" />
+          <ScalarProperty Name="fo2020" ColumnName="fo2020" />
+          <ScalarProperty Name="fo2021" ColumnName="fo2021" />
+          <ScalarProperty Name="fo2022" ColumnName="fo2022" />
+          <ScalarProperty Name="fo2023" ColumnName="fo2023" />
+          <ScalarProperty Name="fo2024" ColumnName="fo2024" />
+          <ScalarProperty Name="finsource" ColumnName="finsource" />
+          <ScalarProperty Name="fo_total" ColumnName="fo_total" />
+          <ScalarProperty Name="finsourcecode" ColumnName="finsourcecode" />
+          <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="participants">
+      <EntityTypeMapping TypeName="RegProjectModel.participants">
+        <MappingFragment StoreEntitySet="participants">
+          <ScalarProperty Name="metaid" ColumnName="metaid" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="headpost" ColumnName="headpost" />
+          <ScalarProperty Name="immsupervisor" ColumnName="immsupervisor" />
+          <ScalarProperty Name="percemploy" ColumnName="percemploy" />
+          <ScalarProperty Name="roleinproj" ColumnName="roleinproj" />
+          <ScalarProperty Name="codereestr" ColumnName="codereestr" />
+          <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purposemonthdistribution">
+      <EntityTypeMapping TypeName="RegProjectModel.purposemonthdistribution">
+        <MappingFragment StoreEntitySet="purposemonthdistribution">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="mrk02" ColumnName="mrk02" />
+          <ScalarProperty Name="mrk03" ColumnName="mrk03" />
+          <ScalarProperty Name="mrk04" ColumnName="mrk04" />
+          <ScalarProperty Name="mrk05" ColumnName="mrk05" />
+          <ScalarProperty Name="mrk06" ColumnName="mrk06" />
+          <ScalarProperty Name="mrk07" ColumnName="mrk07" />
+          <ScalarProperty Name="mrk08" ColumnName="mrk08" />
+          <ScalarProperty Name="mrk09" ColumnName="mrk09" />
+          <ScalarProperty Name="mrk10" ColumnName="mrk10" />
+          <ScalarProperty Name="mrk11" ColumnName="mrk11" />
+          <ScalarProperty Name="mrk12" ColumnName="mrk12" />
+          <ScalarProperty Name="mrkendyaer" ColumnName="mrkendyaer" />
+          <ScalarProperty Name="after0112" ColumnName="after0112" />
+          <ScalarProperty Name="reasonsmo" ColumnName="reasonsmo" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="metaid_purposes" ColumnName="metaid_purposes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purposes">
+      <EntityTypeMapping TypeName="RegProjectModel.purposes">
+        <MappingFragment StoreEntitySet="purposes">
+          <ScalarProperty Name="metaid" ColumnName="metaid" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="mrkname" ColumnName="mrkname" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="typemrk" ColumnName="typemrk" />
+          <ScalarProperty Name="typevaluemrk" ColumnName="typevaluemrk" />
+          <ScalarProperty Name="okeicode" ColumnName="okeicode" />
+          <ScalarProperty Name="okeiname" ColumnName="okeiname" />
+          <ScalarProperty Name="basicvalueind" ColumnName="basicvalueind" />
+          <ScalarProperty Name="value2018" ColumnName="value2018" />
+          <ScalarProperty Name="value2019" ColumnName="value2019" />
+          <ScalarProperty Name="value2020" ColumnName="value2020" />
+          <ScalarProperty Name="value2021" ColumnName="value2021" />
+          <ScalarProperty Name="value2022" ColumnName="value2022" />
+          <ScalarProperty Name="value2023" ColumnName="value2023" />
+          <ScalarProperty Name="value2024" ColumnName="value2024" />
+          <ScalarProperty Name="value2025" ColumnName="value2025" />
+          <ScalarProperty Name="value2026" ColumnName="value2026" />
+          <ScalarProperty Name="value2027" ColumnName="value2027" />
+          <ScalarProperty Name="value2028" ColumnName="value2028" />
+          <ScalarProperty Name="value2029" ColumnName="value2029" />
+          <ScalarProperty Name="value2030" ColumnName="value2030" />
+          <ScalarProperty Name="dockind" ColumnName="dockind" />
+          <ScalarProperty Name="approgv" ColumnName="approgv" />
+          <ScalarProperty Name="approvtdatenpa" ColumnName="approvtdatenpa" />
+          <ScalarProperty Name="numbernpa" ColumnName="numbernpa" />
+          <ScalarProperty Name="namenpa" ColumnName="namenpa" />
+          <ScalarProperty Name="sourcedata" ColumnName="sourcedata" />
+          <ScalarProperty Name="fpmrkid" ColumnName="fpmrkid" />
+          <ScalarProperty Name="fpmrkname" ColumnName="fpmrkname" />
+          <ScalarProperty Name="tasksrecordid" ColumnName="tasksrecordid" />
+          <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+          <ScalarProperty Name="taskname" ColumnName="taskname" />
+          <ScalarProperty Name="taskrespexec" ColumnName="taskrespexec" />
+          <ScalarProperty Name="targettype" ColumnName="targettype" />
+          <ScalarProperty Name="ozrname" ColumnName="ozrname" />
+          <ScalarProperty Name="ozrnum" ColumnName="ozrnum" />
+          <ScalarProperty Name="ozrbeneficiar" ColumnName="ozrbeneficiar" />
+          <ScalarProperty Name="ozrokeicode" ColumnName="ozrokeicode" />
+          <ScalarProperty Name="ozrokeiname" ColumnName="ozrokeiname" />
+          <ScalarProperty Name="ozrtype" ColumnName="ozrtype" />
+          <ScalarProperty Name="yearend" ColumnName="yearend" />
+          <ScalarProperty Name="establishact" ColumnName="establishact" />
+          <ScalarProperty Name="lvlmrk" ColumnName="lvlmrk" />
+          <ScalarProperty Name="purposemonthdistribution" ColumnName="purposemonthdistribution" />
+          <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegProjectTable">
+      <EntityTypeMapping TypeName="RegProjectModel.RegProjectTable">
+        <MappingFragment StoreEntitySet="RegProjectTable">
+          <ScalarProperty Name="metaid" ColumnName="metaid" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="shortname" ColumnName="shortname" />
+          <ScalarProperty Name="idfp" ColumnName="idfp" />
+          <ScalarProperty Name="fpcode" ColumnName="fpcode" />
+          <ScalarProperty Name="fpname" ColumnName="fpname" />
+          <ScalarProperty Name="curator" ColumnName="curator" />
+          <ScalarProperty Name="person" ColumnName="person" />
+          <ScalarProperty Name="kvsr" ColumnName="kvsr" />
+          <ScalarProperty Name="actualversion" ColumnName="actualversion" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="roiv" ColumnName="roiv" />
+          <ScalarProperty Name="purposes" ColumnName="purposes" />
+          <ScalarProperty Name="tasks" ColumnName="tasks" />
+          <ScalarProperty Name="participants" ColumnName="participants" />
+          <ScalarProperty Name="finsupportsall" ColumnName="finsupportsall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="results">
+      <EntityTypeMapping TypeName="RegProjectModel.results">
+        <MappingFragment StoreEntitySet="results">
+          <ScalarProperty Name="metaid" ColumnName="metaid" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="basicvalue" ColumnName="basicvalue" />
+          <ScalarProperty Name="monetary_result" ColumnName="monetary_result" />
+          <ScalarProperty Name="fpresult" ColumnName="fpresult" />
+          <ScalarProperty Name="respexec" ColumnName="respexec" />
+          <ScalarProperty Name="orgrespexec" ColumnName="orgrespexec" />
+          <ScalarProperty Name="numbercharact" ColumnName="numbercharact" />
+          <ScalarProperty Name="typeres" ColumnName="typeres" />
+          <ScalarProperty Name="kindres" ColumnName="kindres" />
+          <ScalarProperty Name="realizemo" ColumnName="realizemo" />
+          <ScalarProperty Name="notsubjfund" ColumnName="notsubjfund" />
+          <ScalarProperty Name="subjfund" ColumnName="subjfund" />
+          <ScalarProperty Name="iskey" ColumnName="iskey" />
+          <ScalarProperty Name="okeicode" ColumnName="okeicode" />
+          <ScalarProperty Name="okeiname" ColumnName="okeiname" />
+          <ScalarProperty Name="sourcedata" ColumnName="sourcedata" />
+          <ScalarProperty Name="cumulative" ColumnName="cumulative" />
+          <ScalarProperty Name="cbaccumulationtype" ColumnName="cbaccumulationtype" />
+          <ScalarProperty Name="typevaluemrk" ColumnName="typevaluemrk" />
+          <ScalarProperty Name="costwaycode" ColumnName="costwaycode" />
+          <ScalarProperty Name="directionexpenses" ColumnName="directionexpenses" />
+          <ScalarProperty Name="direxpcoderesf" ColumnName="direxpcoderesf" />
+          <ScalarProperty Name="direxpnameresf" ColumnName="direxpnameresf" />
+          <ScalarProperty Name="executpost" ColumnName="executpost" />
+          <ScalarProperty Name="metaid_task" ColumnName="metaid_task" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roiv">
+      <EntityTypeMapping TypeName="RegProjectModel.roiv">
+        <MappingFragment StoreEntitySet="roiv">
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject">
+      <EntityTypeMapping TypeName="RegProjectModel.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RegProjectModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tasks">
+      <EntityTypeMapping TypeName="RegProjectModel.tasks">
+        <MappingFragment StoreEntitySet="tasks">
+          <ScalarProperty Name="metaid" ColumnName="metaid" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="nprecordid" ColumnName="nprecordid" />
+          <ScalarProperty Name="targettype" ColumnName="targettype" />
+          <ScalarProperty Name="ozrrecordid" ColumnName="ozrrecordid" />
+          <ScalarProperty Name="ozrname" ColumnName="ozrname" />
+          <ScalarProperty Name="ozrnum" ColumnName="ozrnum" />
+          <ScalarProperty Name="ozrbeneficiar" ColumnName="ozrbeneficiar" />
+          <ScalarProperty Name="ozrokeicode" ColumnName="ozrokeicode" />
+          <ScalarProperty Name="ozrokeiname" ColumnName="ozrokeiname" />
+          <ScalarProperty Name="ozrtype" ColumnName="ozrtype" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="metaid_rp" ColumnName="metaid_rp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

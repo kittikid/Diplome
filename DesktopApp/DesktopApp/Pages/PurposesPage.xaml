@@ -1,0 +1,269 @@
+﻿<Page x:Class="DesktopApp.Pages.PurposesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PurposesPage">
+
+    <Grid>
+        <DockPanel Background="White" Grid.Row="1">
+            <StackPanel DockPanel.Dock="Top" Background="#d2dcff" Orientation="Horizontal" Height="35" Margin="0,15,0,0">
+                <TextBlock x:Name="tbPurposes" Text="Цели" VerticalAlignment="Center" Foreground="#727daa" FontWeight="Bold" Margin="10,0,0,0"
+                           MouseEnter="tbPurposes_MouseEnter" MouseLeave="tbRegProject_MouseLeave" PreviewMouseDown="tbPurposes_PreviewMouseDown" Cursor="Hand"/>
+            </StackPanel>
+
+            <DockPanel DockPanel.Dock="Top">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                    <ItemsControl ItemsSource="{Binding Items}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Border BorderBrush="#a9bfd0" BorderThickness="1" Margin="5" Width="Auto"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center" Padding="5">
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                            <DockPanel Width="700">
+                                                <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Наименование: " FontSize="12" FontWeight="Bold"/>
+                                                        <TextBlock Text="{Binding Taskname}" FontSize="12" TextWrapping="Wrap" Width="600"/>
+                                                    </StackPanel>
+                                                    <Border BorderBrush="#8792b2" BorderThickness="1"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto" Height="Auto">
+                                                        <StackPanel x:Name="spPurposes" Background="#d2dcff" Width="700" Height="25" Cursor="Hand" 
+                                                                    PreviewMouseDown="spPurposes_PreviewMouseDown" MouseEnter="spPurposes_MouseEnter" MouseLeave="spPurposes_MouseLeave">
+                                                            <TextBlock Text="Показатели" FontSize="12" Margin="5" FontWeight="Bold" Foreground="#727daa" Cursor="Hand" Width="100" HorizontalAlignment="Left"/>
+                                                            <StackPanel Background="White" Margin="10,5,10,5">
+                                                                <Border BorderBrush="#8792b2" BorderThickness="1"
+                                                                    VerticalAlignment="Center" Width="Auto" Height="Auto">
+                                                                    <StackPanel Orientation="Vertical" Height="Auto" Margin="10" Background="#f5f5f5">
+                                                                        <Border BorderBrush="#8792b2" BorderThickness="1"
+                                                                            VerticalAlignment="Center" Width="Auto" Height="Auto">
+                                                                            <StackPanel>
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Код: " FontSize="11" FontWeight="Bold"/>
+                                                                                    <TextBlock Text="{Binding Code}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Описание: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Description}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Тип МРК: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Typemrk}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение типа МРК: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Typevaluemrk}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Код OKEI: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Okeicode}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Имя OKEI: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Okeiname}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Базовое значение: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Basicvalueind}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2018: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2018}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2019: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2019}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2020: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2020}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2021: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2021}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2022: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2022}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2023: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2023}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2024: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2024}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2025: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2025}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2026: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2026}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2027: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2027}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2028: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2028}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2029: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2029}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Значение за 2030: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Value2030}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Док Id: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Dockind}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Approgv: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Approgv}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Approvtdatenpa: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Approvtdatenpa}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Numbernpa: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Numbernpa}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Sourcedata: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Sourcedata}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Fpmrkid: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Fpmrkid}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Fpmrkname: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Fpmrkname}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Tasksrecordid: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Tasksrecordid}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Taskcode: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Taskcode}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Taskrespexec: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Taskrespexec}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Targettype: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Targettype}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Ozrname: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Ozrname}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Ozrnum: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Ozrnum}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Ozrbeneficiar: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Ozrbeneficiar}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Ozrokeicode: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Ozrokeicode}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Ozrokeiname: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Ozrokeiname}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Ozrtype: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Ozrtype}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Yearend: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Yearend}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Establishact: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Establishact}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
+                                                                                    <TextBlock Text="Lvlmrk: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Lvlmrk}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+
+                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,5">
+                                                                                    <TextBlock Text="Purposemonthdistribution: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Purposemonthdistribution}" FontSize="11" Width="500"/>
+                                                                                </StackPanel>
+                                                                            </StackPanel>
+                                                                        </Border>
+                                                                    </StackPanel>
+                                                                </Border>
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+            
+        </DockPanel>
+    </Grid>
+</Page>
