@@ -19,7 +19,6 @@
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
                 <TextBlock Text="Пароль" FontSize="14" HorizontalAlignment="Left"/>
-                <!--<TextBox Height="30" Width="150" Visibility="Hidden" VerticalContentAlignment="Center" Margin="0,5,0,0" FontSize="16" />-->
                 <PasswordBox x:Name="pbPasswordBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,5,0,0" FontSize="14"/>
             </StackPanel>
 

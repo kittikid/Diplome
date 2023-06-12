@@ -59,10 +59,6 @@ namespace DesktopApp
 
             //timer = new Timer();
             //timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-
-            AutorizationWindow autorizationWindow = new AutorizationWindow();
-            autorizationWindow.CloseWindow();
-            autorizationWindow.Close();
         }
 
         //private DateTime alarmDateTime;

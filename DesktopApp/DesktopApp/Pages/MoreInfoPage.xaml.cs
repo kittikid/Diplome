@@ -31,7 +31,6 @@ namespace DesktopApp.Pages
         {
             InitializeComponent();
             Metaid = long.Parse(metaid);
-            //MessageBox.Show($"{metaid}");
             databaseHelper = new DatabaseHelper();
             items = databaseHelper.LoadFirstPanel(Metaid);
             DataContext = new ViewModelFirstPanel { Items = items };
@@ -55,7 +54,6 @@ namespace DesktopApp.Pages
 
         private void tbRegProject_MouseLeave(object sender, MouseEventArgs e)
         {
-            //#628db7
             var focusTextBlock = (TextBlock)sender;
             focusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(98, 141, 183));
             focusTextBlock.TextDecorations = null;
@@ -77,10 +75,6 @@ namespace DesktopApp.Pages
 
         private void tbPurposes_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            //var regProjectItem = ((FrameworkElement)sender).DataContext as TileData; //коллекция элементов 
-            //if (regProjectItem != null)
-            //{
-            //}
             this.NavigationService.Navigate(new PurposesPage(Metaid));
         }
 
@@ -100,7 +94,7 @@ namespace DesktopApp.Pages
 
         private void tbTasks_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new TasksPage());
+            this.NavigationService.Navigate(new TasksPage(Metaid));
         }
     }
 }

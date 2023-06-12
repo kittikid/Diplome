@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp.Windows"
         mc:Ignorable="d"
-        Title="AutorizationWindow" Height="400" Width="600" MinHeight="400" MinWidth="400" WindowStartupLocation="CenterScreen" AllowsTransparency="False">
+        Title="Региональные проекты" 
+        Height="400" Width="600" MinHeight="400" MinWidth="400" 
+        WindowStartupLocation="CenterScreen" AllowsTransparency="False"
+        Icon="WinImages/Logo.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*" />

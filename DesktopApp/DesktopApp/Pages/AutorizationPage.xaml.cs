@@ -29,10 +29,6 @@ namespace DesktopApp.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AutorizationWindow autorizationWindow = new AutorizationWindow();
-            autorizationWindow.CloseWindow();
-            autorizationWindow.Close();
-            //Content = null;
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
         }

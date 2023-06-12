@@ -26,10 +26,5 @@ namespace DesktopApp.Windows
 
             AuthPageFrame.Navigate(new AutorizationPage());
         }
-
-        public void CloseWindow()
-        {
-            Close();
-        }
     }
 }

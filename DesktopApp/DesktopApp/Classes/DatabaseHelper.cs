@@ -1,4 +1,5 @@
 ﻿using DesktopApp.Base;
+using DesktopApp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -101,6 +102,51 @@ namespace DesktopApp
                     Establishact = $"{rpt.establishact}",
                     Lvlmrk = $"{rpt.lvlmrk}",
                     Purposemonthdistribution = $"{rpt.purposemonthdistribution}"
+                });
+            });
+            return items;
+        }
+
+        public List<TasksClass> GetTasks(long Metaid)
+        {
+            var items = new List<TasksClass>();
+            var Database = SourceCore.RegProjectDatabase.tasks;
+            Database.Where(x => x.metaid_rp == Metaid).ToList().ForEach(rpt =>
+            {
+                items.Add(new TasksClass
+                {
+                    Metaid = $"{rpt.metaid}",
+                    Recordid = $"{rpt.recordid}",
+                    Name = rpt.name,
+                    Code = $"{rpt.code}",
+                    Nprecordid = rpt.nprecordid,
+                    Targettype = rpt.targettype,
+                    Ozrrecordid = rpt.ozrrecordid,
+                    Ozrname = rpt.ozrname,
+                    Ozrnum = rpt.ozrnum,
+                    Ozrbeneficiar = rpt.ozrbeneficiar,
+                    Ozrokeicode = rpt.ozrokeicode,
+                    Ozrokeiname = rpt.ozrokeiname,
+                    Ozrtype = rpt.ozrtype,
+                    Result = $"{rpt.result}"
+                });
+            });
+            return items;
+        }
+
+        public List<ResultsClass> GetResults(long Metaid)
+        {
+            var items = new List<ResultsClass>();
+            var Database = SourceCore.RegProjectDatabase.results;
+            Database.Where(x => x.metaid_task == Metaid).ToList().ForEach(rpt =>
+            {
+                items.Add(new ResultsClass
+                {
+                    Metaid = $"{rpt.metaid}",
+                    Name = rpt.name,
+                    Code = $"{rpt.code}",   
+                    Respexec = rpt.respexec,
+                    Numbercharact = rpt.numbercharact
                 });
             });
             return items;

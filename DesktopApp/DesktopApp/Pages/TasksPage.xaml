@@ -9,6 +9,61 @@
       Title="TasksPage">
 
     <Grid>
-        
+        <DockPanel Background="White" Grid.Row="1">
+            <StackPanel DockPanel.Dock="Top" Background="#d2dcff" Orientation="Horizontal" Height="35" Margin="0,15,0,0">
+                <TextBlock x:Name="tbTasks" Text="Задачи" VerticalAlignment="Center" Foreground="#727daa" FontWeight="Bold" Margin="10,0,0,0"
+                           MouseEnter="tbTasks_MouseEnter"  MouseLeave="tbTasks_MouseLeave"  PreviewMouseDown="tbTasks_PreviewMouseDown"  Cursor="Hand"/>
+            </StackPanel>
+
+            <DockPanel DockPanel.Dock="Top">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                    <ItemsControl ItemsSource="{Binding Items}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Border BorderBrush="#a9bfd0" BorderThickness="1" Margin="5" Width="Auto"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center" Padding="5">
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                            <DockPanel Width="700">
+                                                <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Код: " FontSize="12" FontWeight="Bold"/>
+                                                        <TextBlock Text="{Binding Code}" FontSize="12" TextWrapping="Wrap" Width="600"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Наименование: " FontSize="12" FontWeight="Bold"/>
+                                                        <TextBlock Text="{Binding Name}" FontSize="12" TextWrapping="Wrap" Width="600"/>
+                                                    </StackPanel>
+                                                    <Border BorderBrush="#8792b2" BorderThickness="1"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto" Height="Auto">
+                                                        <StackPanel x:Name="spTasks" Background="#d2dcff" Width="700" Height="25" Cursor="Hand"
+                                                                    PreviewMouseDown="spTasks_PreviewMouseDown"  MouseEnter="spTasks_MouseEnter"  MouseLeave="spTasks_MouseLeave">
+                                                            <TextBlock Text="Результаты" FontSize="12" Margin="5" FontWeight="Bold" Foreground="#727daa" Cursor="Hand" Width="100" HorizontalAlignment="Left"/>
+                                                            <StackPanel x:Name="spResults" Background="White" Margin="10,5,10,5" >
+                                                                <Border BorderBrush="#8792b2" BorderThickness="1"
+                                                                    VerticalAlignment="Center" Width="Auto" Height="Auto">
+                                                                    <StackPanel Orientation="Vertical" Height="Auto" Margin="10" Background="#f5f5f5">
+                                                                        <!--<Border BorderBrush="#8792b2" BorderThickness="1"
+                                                                            VerticalAlignment="Center" Width="Auto" Height="Auto">-->
+                                                                            <StackPanel>
+                                                                                <Frame x:Name="RootFrame" Initialized="RootFrame_Initialized"/>
+                                                                            </StackPanel>
+                                                                        <!--</Border>-->
+                                                                    </StackPanel>
+                                                                </Border>
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </Page>
