@@ -331,6 +331,10 @@
     <Resource Include="Images\hamb.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Windows\WinImages\Logo.ico" />
+    <Resource Include="Images\Logo.ico" />
+    <Resource Include="Images\Exit.png" />
+    <Content Include="Windows\WinImages\Logo.svg" />
     <Resource Include="Windows\WinImages\Logo.png" />
     <Resource Include="Images\settings.png" />
     <Resource Include="Images\gear.png" />

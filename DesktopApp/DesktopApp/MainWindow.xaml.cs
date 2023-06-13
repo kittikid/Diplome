@@ -57,57 +57,13 @@ namespace DesktopApp
             InitializeComponent();
 
             MainFrame.Navigate(new MainPage(user));
-
-            //timer = new Timer();
-            //timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
         }
 
-        //private DateTime alarmDateTime;
-        //private System.Timers.Timer timer;
-
-        //private void SetAlarmButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (DateTime.TryParse(dpAlarmDate.SelectedDate.Value.ToString("dd/MM/yyyy") + " " + txtAlarmTime.Text, out alarmDateTime))
-        //    {
-        //        TimeSpan timeToAlarm = alarmDateTime - DateTime.Now;
-        //        if (timeToAlarm.TotalMilliseconds > 0)
-        //        {
-        //            timer.Interval = timeToAlarm.TotalMilliseconds;
-        //            timer.Enabled = true;
-        //            MessageBox.Show("Alarm set for " + alarmDateTime.ToString("dd/MM/yyyy hh:mm tt"));
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Invalid date or time. Please enter a future date and time.");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Invalid date or time format. Please enter date in dd/MM/yyyy format and time in hh:mm tt format.");
-        //    }
-        //}
-
-        //private void OnTimedEvent(object source, ElapsedEventArgs e)
-        //{
-        //    MessageBox.Show("Hello World");
-        //    //Tiles.Add(new Tile { Title = "New Tile" });
-        //    timer.Enabled = false;
-        //}
-
-        //private void GridSplitter_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (SplitViewPanel.Width == new GridLength(0))
-        //        SplitViewPanel.Width = new GridLength(240);
-        //    else
-        //        SplitViewPanel.Width = new GridLength(0);
-        //}
-
-        //private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (SplitViewPanel.Width == new GridLength(0))
-        //        SplitViewPanel.Width = new GridLength(240);
-        //    else
-        //        SplitViewPanel.Width = new GridLength(0);
-        //}
+        private void ExitImage_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AutorizationWindow autorizationWindow = new AutorizationWindow();
+            autorizationWindow.Show();
+            this.Close();
+        }
     }
 }

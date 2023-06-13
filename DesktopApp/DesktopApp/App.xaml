@@ -4,10 +4,6 @@
              xmlns:local="clr-namespace:DesktopApp"
              StartupUri="Windows/AutorizationWindow.xaml">
     <Application.Resources>
-
-        <!--<ControlTemplate x:Key="TextBlockPurposes">
-            
-        </ControlTemplate>-->
         
         <Style TargetType="TreeViewItem">
             <Setter Property="Foreground" Value="White" />

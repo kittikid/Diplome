@@ -29,16 +29,17 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Background="#628db7" Grid.ColumnSpan="3" Orientation="Horizontal">
             
-            <Image Source="Images/Logo.png" Width="60" Height="60" Margin="10,0,0,0"
+            <Image Source="Images/Logo.png" Width="40" Height="40" Margin="10,0,0,0"
                    VerticalAlignment="Center"/>
-            
+
             <TextBlock FontSize="24" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" 
                        Padding="5,10,0,10"
                        Text="Система управления региональными и приоритетными проектами"/>
         </StackPanel>
 
         <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#628db7">
-            
+            <Image x:Name="ExitImage" HorizontalAlignment="Right" Source="Images/Exit.png" Width="25" Height="25" Margin="0,0,5,0"
+                   VerticalAlignment="Center" PreviewMouseDown="ExitImage_PreviewMouseDown" Cursor="Hand"/>
         </DockPanel>
 
     </Grid>

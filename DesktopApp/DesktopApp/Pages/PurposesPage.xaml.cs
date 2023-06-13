@@ -81,15 +81,10 @@ namespace DesktopApp.Pages
             focusTextBlock.TextDecorations = null;
         }
 
-        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
         private void spPurposes_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             var focusStackPanel = (StackPanel)sender;
-            focusStackPanel.Height = focusStackPanel.Height > 799 ? 25 : 800;
+            focusStackPanel.Height = focusStackPanel.Height > 599 ? 25 : 600;
         }
 
         private void spPurposes_MouseEnter(object sender, MouseEventArgs e)

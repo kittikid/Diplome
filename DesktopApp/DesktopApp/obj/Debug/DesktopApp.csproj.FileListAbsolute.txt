@@ -13,11 +13,9 @@ C:\Diplome\DesktopApp\DesktopApp\bin\Debug\System.Runtime.CompilerServices.Unsaf
 C:\Diplome\DesktopApp\DesktopApp\bin\Debug\Newtonsoft.Json.xml
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.AssemblyReference.cache
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.SuggestedBindingRedirects.cache
-C:\Diplome\DesktopApp\DesktopApp\obj\Debug\MainWindow.g.cs
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\App.g.cs
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.cache
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.lref
-C:\Diplome\DesktopApp\DesktopApp\obj\Debug\MainWindow.baml
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp.g.resources
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Properties.Resources.resources
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.GenerateResource.cache
@@ -107,3 +105,5 @@ C:\Diplome\DesktopApp\DesktopApp\obj\Debug\Pages\FinsupportsallPage.g.cs
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\Pages\FinsupportsallPage.baml
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\Windows\RegistrationWindow.g.cs
 C:\Diplome\DesktopApp\DesktopApp\obj\Debug\Windows\RegistrationWindow.baml
+C:\Diplome\DesktopApp\DesktopApp\obj\Debug\MainWindow.g.cs
+C:\Diplome\DesktopApp\DesktopApp\obj\Debug\MainWindow.baml

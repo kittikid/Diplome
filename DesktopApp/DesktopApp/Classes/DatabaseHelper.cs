@@ -88,6 +88,7 @@ namespace DesktopApp
                     Sourcedata = rpt.sourcedata,
                     Fpmrkid = rpt.fpmrkid,
                     Fpmrkname = rpt.fpmrkname,
+                    Mrkname = rpt.mrkname,
                     Tasksrecordid = $"{rpt.tasksrecordid}",
                     Taskcode = $"{rpt.taskcode}",
                     Taskrespexec = rpt.taskrespexec,
