@@ -1,4 +1,5 @@
 ﻿using DesktopApp.Base;
+using DesktopApp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,16 +28,18 @@ namespace DesktopApp.Pages
     public partial class PurposesPage : Page
     {
         private DatabaseHelper databaseHelper;
-        public PurposesPage(long metaid)
+        public PurposesPage(long metaid, List<UserLogin> user)
         {
             InitializeComponent();
 
             Metaid = metaid;
+            _user = user;
             databaseHelper = new DatabaseHelper();
             items = databaseHelper.GetPurposes(Metaid);
             DataContext = new ViewModelPurposes { Items = items };
         }
 
+        private List<UserLogin> _user;
         private long Metaid;
         private List<PurposesClass> items;
 
@@ -61,7 +64,7 @@ namespace DesktopApp.Pages
             //if (regProjectItem != null)
             //{
             //}
-            this.NavigationService.Navigate(new MoreInfoPage($"{Metaid}"));
+            this.NavigationService.Navigate(new MoreInfoPage($"{Metaid}", _user));
         }
 
         private void TextBlock_MouseEnter(object sender, MouseEventArgs e)

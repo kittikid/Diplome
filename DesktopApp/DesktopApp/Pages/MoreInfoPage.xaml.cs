@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,21 +28,23 @@ namespace DesktopApp.Pages
     public partial class MoreInfoPage : Page
     {
         private DatabaseHelper databaseHelper;
-        public MoreInfoPage(string metaid)
+        public MoreInfoPage(string metaid, List<UserLogin> user)
         {
             InitializeComponent();
             Metaid = long.Parse(metaid);
+            _user = user;
             databaseHelper = new DatabaseHelper();
             items = databaseHelper.LoadFirstPanel(Metaid);
             DataContext = new ViewModelFirstPanel { Items = items };
         }
 
+        private List<UserLogin> _user;
         private List<TileData> items;
         private long Metaid;
 
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new MainPage());
+            this.NavigationService.Navigate(new MainPage(_user));
         }
 
         //-------------------выделение текста-----------------
@@ -75,7 +78,7 @@ namespace DesktopApp.Pages
 
         private void tbPurposes_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new PurposesPage(Metaid));
+            this.NavigationService.Navigate(new PurposesPage(Metaid, _user));
         }
 
         private void tbTasks_MouseEnter(object sender, MouseEventArgs e)
@@ -94,7 +97,26 @@ namespace DesktopApp.Pages
 
         private void tbTasks_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new TasksPage(Metaid));
+            this.NavigationService.Navigate(new TasksPage(Metaid, _user));
+        }
+
+        private void tbFinsupp_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var focusTextBlock = (TextBlock)sender;
+            focusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(94, 102, 138));
+            focusTextBlock.TextDecorations = TextDecorations.Underline;
+        }
+
+        private void tbFinsupp_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var focusTextBlock = (TextBlock)sender;
+            focusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(114, 125, 170));
+            focusTextBlock.TextDecorations = null;
+        }
+
+        private void tbFinsupp_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.NavigationService.Navigate(new FinsupportsallPage(Metaid, _user));
         }
     }
 }

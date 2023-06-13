@@ -49,6 +49,7 @@ namespace DesktopApp.Base
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<purposes> purposes1 { get; set; }
         public virtual subject subject1 { get; set; }
+        public virtual roiv roiv1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tasks> tasks1 { get; set; }
     }

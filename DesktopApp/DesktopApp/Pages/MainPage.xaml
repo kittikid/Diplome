@@ -15,8 +15,11 @@
             <DockPanel Height="35" DockPanel.Dock="Top">
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="UploadNow" Width="110" Height="25" Grid.Row="2" Content="Закачать данные" Margin="5" HorizontalAlignment="Left" Click="UploadNow_Click" />
+                    <Button x:Name="RegUsers" Width="110" Height="25" Grid.Row="2" Content="Рег. пользователя" Visibility="Collapsed" Margin="0,5,5,5" HorizontalAlignment="Left" Click="RegUsers_Click" />
                 </StackPanel>
-                
+
+                <StackPanel Background="#537699" Width="3" Height="25" Margin="0,5,5,5" />
+
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="PrevButton" Content="Назад" DockPanel.Dock="Right" Click="PrevButton_Click" 
                         Width="50" Height="25"/>

@@ -1,4 +1,4 @@
-﻿<Page x:Class="DesktopApp.Pages.MoreInfoPage"
+﻿    <Page x:Class="DesktopApp.Pages.MoreInfoPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -61,6 +61,11 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Background="White" Grid.Row="1">
+            <StackPanel Background="#d2dcff" Orientation="Horizontal" Height="35" Margin="0,15,0,0">
+                <TextBlock x:Name="tbFinsupp" Text="Финансирование" VerticalAlignment="Center" Foreground="#727daa" FontWeight="Bold" Margin="10,0,0,0"
+                           MouseEnter="tbFinsupp_MouseEnter" MouseLeave="tbFinsupp_MouseLeave" PreviewMouseDown="tbFinsupp_PreviewMouseDown" Cursor="Hand"/>
+            </StackPanel>
+            
             <StackPanel Background="#d2dcff" Orientation="Horizontal" Height="35" Margin="0,15,0,0">
                 <TextBlock x:Name="tbPurposes" Text="Цели" VerticalAlignment="Center" Foreground="#727daa" FontWeight="Bold" Margin="10,0,0,0"
                            MouseEnter="tbPurposes_MouseEnter" MouseLeave="tbPurposes_MouseLeave" PreviewMouseDown="tbPurposes_PreviewMouseDown" Cursor="Hand"/>

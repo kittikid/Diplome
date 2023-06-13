@@ -28,16 +28,18 @@ namespace DesktopApp.Pages
     public partial class TasksPage : Page
     {
         private DatabaseHelper databaseHelper;
-        public TasksPage(long metaid)
+        public TasksPage(long metaid, List<UserLogin> user)
         {
             InitializeComponent();
 
             Metaid = metaid;
+            _user = user;
             databaseHelper = new DatabaseHelper();
             items = databaseHelper.GetTasks(Metaid);
             DataContext = new ViewModelTasks { Items = items };
         }
 
+        private List<UserLogin> _user;
         private long Metaid;
         private List<TasksClass> items;
 
@@ -57,7 +59,7 @@ namespace DesktopApp.Pages
 
         private void tbTasks_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new MoreInfoPage($"{Metaid}"));
+            this.NavigationService.Navigate(new MoreInfoPage($"{Metaid}", _user));
         }
 
         private void spTasks_PreviewMouseDown(object sender, MouseButtonEventArgs e)

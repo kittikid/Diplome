@@ -167,6 +167,13 @@
     <Property Name="recordid" Type="bigint" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="subject">
     <Key>
       <PropertyRef Name="recordid" />
@@ -204,6 +211,15 @@
     <Property Name="ozrtype" Type="nvarchar" MaxLength="500" />
     <Property Name="result" Type="bigint" />
     <Property Name="metaid_rp" Type="bigint" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" />
+    <Property Name="role_id" Type="int" />
   </EntityType>
   <Association Name="FK_finsupportsall_RegProject">
     <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="0..1" />
@@ -265,6 +281,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_RegProjectTable_roiv">
+    <End Role="roiv" Type="Self.roiv" Multiplicity="0..1" />
+    <End Role="RegProjectTable" Type="Self.RegProjectTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roiv">
+        <PropertyRef Name="recordid" />
+      </Principal>
+      <Dependent Role="RegProjectTable">
+        <PropertyRef Name="roiv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_results_tasks">
     <End Role="tasks" Type="Self.tasks" Multiplicity="0..1" />
     <End Role="results" Type="Self.results" Multiplicity="*" />
@@ -289,6 +317,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_users_roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="Хранилище RegProjectModelContainer">
     <EntitySet Name="finsupportsall" EntityType="Self.finsupportsall" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="participants" EntityType="Self.participants" Schema="dbo" store:Type="Tables" />
@@ -297,9 +337,11 @@
     <EntitySet Name="RegProjectTable" EntityType="Self.RegProjectTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="results" EntityType="Self.results" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="roiv" EntityType="Self.roiv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="subject" EntityType="Self.subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tasks" EntityType="Self.tasks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_finsupportsall_RegProject" Association="Self.FK_finsupportsall_RegProject">
       <End Role="RegProjectTable" EntitySet="RegProjectTable" />
       <End Role="finsupportsall" EntitySet="finsupportsall" />
@@ -320,6 +362,10 @@
       <End Role="subject" EntitySet="subject" />
       <End Role="RegProjectTable" EntitySet="RegProjectTable" />
     </AssociationSet>
+    <AssociationSet Name="FK_RegProjectTable_roiv" Association="Self.FK_RegProjectTable_roiv">
+      <End Role="roiv" EntitySet="roiv" />
+      <End Role="RegProjectTable" EntitySet="RegProjectTable" />
+    </AssociationSet>
     <AssociationSet Name="FK_results_tasks" Association="Self.FK_results_tasks">
       <End Role="tasks" EntitySet="tasks" />
       <End Role="results" EntitySet="results" />
@@ -327,6 +373,10 @@
     <AssociationSet Name="FK_tasks_RegProject" Association="Self.FK_tasks_RegProject">
       <End Role="RegProjectTable" EntitySet="RegProjectTable" />
       <End Role="tasks" EntitySet="tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_roles" Association="Self.FK_users_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

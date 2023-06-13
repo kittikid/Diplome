@@ -4,24 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b2b7242c19c4720ab440f447db4daf2" Name="Diagram1">
+      <Diagram DiagramId="9d70adcb02c04a3c9e6d937e59159c69" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="RegProjectModel.finsupportsall" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="RegProjectModel.participants" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="RegProjectModel.purposemonthdistribution" Width="1.5" PointX="7.5" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RegProjectModel.purposes" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RegProjectModel.RegProjectTable" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="RegProjectModel.results" Width="1.5" PointX="7.5" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RegProjectModel.roiv" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RegProjectModel.subject" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="RegProjectModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegProjectModel.roiv" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegProjectModel.roles" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegProjectModel.subject" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegProjectModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RegProjectModel.tasks" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegProjectModel.users" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="RegProjectModel.FK_finsupportsall_RegProject" ManuallyRouted="false" />
         <AssociationConnector Association="RegProjectModel.FK_participants_RegProject" ManuallyRouted="false" />
         <AssociationConnector Association="RegProjectModel.FK_purposemonthdistribution_purposes" ManuallyRouted="false" />
         <AssociationConnector Association="RegProjectModel.FK_purposes_RegProject" ManuallyRouted="false" />
         <AssociationConnector Association="RegProjectModel.FK_RegProject_subject" ManuallyRouted="false" />
+        <AssociationConnector Association="RegProjectModel.FK_RegProjectTable_roiv" ManuallyRouted="false" />
         <AssociationConnector Association="RegProjectModel.FK_tasks_RegProject" ManuallyRouted="false" />
         <AssociationConnector Association="RegProjectModel.FK_results_tasks" ManuallyRouted="false" />
+        <AssociationConnector Association="RegProjectModel.FK_users_roles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

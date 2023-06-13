@@ -42,6 +42,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Xceed.Wpf.Toolkit.Panels;
 using DesktopApp.Pages;
 using DesktopApp.Windows;
+using DesktopApp.Classes;
 
 namespace DesktopApp
 {
@@ -51,11 +52,11 @@ namespace DesktopApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(List<UserLogin> user)
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new MainPage());
+            MainFrame.Navigate(new MainPage(user));
 
             //timer = new Timer();
             //timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);

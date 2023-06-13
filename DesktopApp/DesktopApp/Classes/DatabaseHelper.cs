@@ -151,6 +151,28 @@ namespace DesktopApp
             });
             return items;
         }
+
+        public List<FinSuppClass> GetFinSupp(long Metaid)
+        {
+            var items = new List<FinSuppClass>();
+            var Database = SourceCore.RegProjectDatabase.finsupportsall;
+            Database.Where(x => x.metaid_rp == Metaid).ToList().ForEach(rpt =>
+            {
+                items.Add(new FinSuppClass
+                {
+                    Id = $"{rpt.id}",
+                    Finsource = rpt.finsource,
+                    Fo2019 = $"{rpt.fo2019}",
+                    Fo2020 = $"{rpt.fo2020}",
+                    Fo2021 = $"{rpt.fo2021}",
+                    Fo2022 = $"{rpt.fo2022}",
+                    Fo2023 = $"{rpt.fo2023}",
+                    Fo2024 = $"{rpt.fo2024}",
+                    Finsourcecode = rpt.finsourcecode
+                });
+            });
+            return items;
+        }
     }
 
 }

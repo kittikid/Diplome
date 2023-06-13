@@ -32,8 +32,10 @@ namespace DesktopApp.Base
         public virtual DbSet<RegProjectTable> RegProjectTable { get; set; }
         public virtual DbSet<results> results { get; set; }
         public virtual DbSet<roiv> roiv { get; set; }
+        public virtual DbSet<roles> roles { get; set; }
         public virtual DbSet<subject> subject { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tasks> tasks { get; set; }
+        public virtual DbSet<users> users { get; set; }
     }
 }

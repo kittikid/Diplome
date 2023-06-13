@@ -40,6 +40,7 @@ using Xceed.Wpf.Toolkit.Panels;
 using DesktopApp.Pages;
 using DesktopApp.Windows;
 using static DesktopApp.DatabaseHelper;
+using DesktopApp.Classes;
 
 namespace DesktopApp.Pages
 {
@@ -54,20 +55,36 @@ namespace DesktopApp.Pages
     public partial class MainPage : Page
     {
         private DatabaseHelper databaseHelper;
-        public MainPage()
+        public MainPage(List<UserLogin> user)
         {
             InitializeComponent();
 
             databaseHelper = new DatabaseHelper();
-
+            _user = user;
             items = databaseHelper.GetItems();
 
             SetPage(currentPage);
+            CheckUserRole();
         }
 
+        private List<UserLogin> _user;
         private List<TileData> items;
         private int currentPage = 0;
         private int itemsPerPage = 5;
+
+        private void CheckUserRole()
+        {
+            if (_user == null) return;
+
+            foreach (var rpt in _user)
+            {
+                RegUsers.Visibility = Visibility.Collapsed;
+                if (rpt.Role == 1)
+                {
+                    RegUsers.Visibility = Visibility.Visible;
+                }
+            }
+        }
 
         //-------------------пагинация-----------------
         private void SetPage(int page)
@@ -106,7 +123,7 @@ namespace DesktopApp.Pages
             var regProjectItem = ((FrameworkElement)sender).DataContext as TileData; //коллекция элементов 
             if (regProjectItem != null)
             {
-                this.NavigationService.Navigate(new MoreInfoPage(regProjectItem.Metaid));
+                this.NavigationService.Navigate(new MoreInfoPage(regProjectItem.Metaid, _user));
                 //MainPageFrame.Navigate(new MoreInfoPage(regProjectItem.Metaid));
             }
         }
@@ -134,6 +151,7 @@ namespace DesktopApp.Pages
 
         private void UrlParse()
         {
+            //3 переменных для ссылки
             string url = "https://budget.gov.ru/epbs/registry/7710168360-REGIONALPROJECT/data";
             Root jsonObject = JsonConvert.DeserializeObject<Root>(new WebClient().DownloadString(url));
             //---1---
@@ -616,6 +634,12 @@ namespace DesktopApp.Pages
                     }
                 }
             }
+        }
+
+        private void RegUsers_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationWindow registrationWindow = new RegistrationWindow();
+            registrationWindow.Show();
         }
     }
 }
