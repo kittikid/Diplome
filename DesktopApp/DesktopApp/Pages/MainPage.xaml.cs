@@ -445,7 +445,7 @@ namespace DesktopApp.Pages
                     }
                 }
             }
-        }
+        }   
 
         private void ParticipantUpload(Root root)
         {

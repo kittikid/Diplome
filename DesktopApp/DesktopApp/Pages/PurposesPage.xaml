@@ -148,18 +148,13 @@
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
-                                                                                    <TextBlock Text="Mrkname: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="Название показателя: " FontSize="11" FontWeight="Bold" />
                                                                                     <TextBlock Text="{Binding Mrkname}" FontSize="11" Width="500"/>
-                                                                                </StackPanel>
-                                                                                
-                                                                                <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
-                                                                                    <TextBlock Text="Fpmrkname: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Fpmrkname}" FontSize="11" Width="500"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
-                                                                                    <TextBlock Text="Targettype: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Targettype}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="Название показателя на федеральном уровне: " FontSize="11" FontWeight="Bold" />
+                                                                                    <TextBlock Text="{Binding Fpmrkname}" FontSize="11" Width="500"/>
                                                                                 </StackPanel>
                                                                             </StackPanel>
                                                                         </Border>
