@@ -15,8 +15,14 @@ namespace DesktopApp.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (tbName.Text == string.Empty && pbPasswordBox.Password == string.Empty)
             {
+                MessageBox.Show("Заполните все поля пользователя!", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {   
                 var Database = SourceCore.RegProjectDatabase;
                 Base.users Users = new Base.users();
                 Users.name = tbName.Text;

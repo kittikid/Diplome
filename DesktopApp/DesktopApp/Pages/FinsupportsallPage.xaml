@@ -16,7 +16,8 @@
             </StackPanel>
 
             <DockPanel DockPanel.Dock="Top">
-                <DataGrid x:Name="FinSuppDataGrid" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid x:Name="FinSuppDataGrid" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" IsReadOnly="True" AutoGenerateColumns="False"
+                         Margin="5" BorderBrush="LightGray" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Код" Width="60" Binding="{Binding Path=Finsourcecode}"/>
                         <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Path=Finsource}"/>
@@ -27,6 +28,35 @@
                         <DataGridTextColumn Header="2023" Width="60" Binding="{Binding Path=Fo2023}"/>
                         <DataGridTextColumn Header="2024" Width="60" Binding="{Binding Path=Fo2024}"/>
                     </DataGrid.Columns>
+                    <DataGrid.RowHeaderStyle>
+                        <Style TargetType="DataGridRowHeader">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate />
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGrid.RowHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#628db7"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="#628db7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#628db7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
                 </DataGrid>
             </DockPanel>
         </DockPanel>

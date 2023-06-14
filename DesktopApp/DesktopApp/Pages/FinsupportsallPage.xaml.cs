@@ -20,7 +20,12 @@ namespace DesktopApp.Pages
             _user = user;
             databaseHelper = new DatabaseHelper();
             items = databaseHelper.GetFinSupp(Metaid);
-            FinSuppDataGrid.ItemsSource = items;
+            FinSuppDataGrid.ItemsSource = items; 
+            //foreach (var item in items)
+            //{
+            //    FinSuppListView.Items.Add(item);
+            //}
+            //FinSuppListView.ItemsSource = items;
         }
 
         private List<UserLogin> _user;
