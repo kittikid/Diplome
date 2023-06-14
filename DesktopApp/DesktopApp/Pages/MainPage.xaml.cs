@@ -50,13 +50,10 @@ namespace DesktopApp.Pages
         {
             if (_user == null) return;
 
-            foreach (var rpt in _user)
+            RegUsers.Visibility = Visibility.Collapsed;
+            if (_user[0].Role == 1)
             {
-                RegUsers.Visibility = Visibility.Collapsed;
-                if (rpt.Role == 1)
-                {
-                    RegUsers.Visibility = Visibility.Visible;
-                }
+                RegUsers.Visibility = Visibility.Visible;
             }
         }
 
