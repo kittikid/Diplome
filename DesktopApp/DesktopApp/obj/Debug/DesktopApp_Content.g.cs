@@ -11,8 +11,5 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("windows/winimages/logo.svg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("base/model1.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("base/model1.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/jquery-1.7-vsdoc.js")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/jquery-1.7.js")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/jquery-1.7.min.js")]
 
 

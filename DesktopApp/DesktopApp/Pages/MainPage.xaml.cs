@@ -51,9 +51,13 @@ namespace DesktopApp.Pages
             if (_user == null) return;
 
             RegUsers.Visibility = Visibility.Collapsed;
-            if (_user[0].Role == 1)
+
+            foreach (var rpt in _user)
             {
-                RegUsers.Visibility = Visibility.Visible;
+                if (rpt.Role == 1)
+                {
+                    RegUsers.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -125,6 +129,7 @@ namespace DesktopApp.Pages
             //3 переменных для ссылки
             string url = "https://budget.gov.ru/epbs/registry/7710168360-REGIONALPROJECT/data";
             Root jsonObject = JsonConvert.DeserializeObject<Root>(new WebClient().DownloadString(url));
+          
             //---1---
             RoivUpload(jsonObject);
             SubjectUpload(jsonObject);
@@ -138,19 +143,25 @@ namespace DesktopApp.Pages
             //---4---
             PurposemonthdistributionUpload(jsonObject);
             ResultUpload(jsonObject);
+            
+            MessageBox.Show("Данные успешно загружены!", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
 
         private void RoivUpload(Root root)
         {
             for (int i = 0; i < root.data.Count; i++)
             {
-                var roiv = root.data[i].roiv;
-                var data = new roiv
+                try
                 {
-                    recordid = Int64.Parse(roiv.recordid),
-                    name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(roiv.name))
-                };
-                SourceCore.RegProjectDatabase.roiv.Add(data);
+                    var roiv = root.data[i].roiv;
+                    var data = new roiv
+                    {
+                        recordid = Int64.Parse(roiv.recordid),
+                        name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(roiv.name)).ToString()
+                    };
+                    SourceCore.RegProjectDatabase.roiv.Add(data);
+                }
+                catch { }
             }
             try
             {
@@ -179,14 +190,17 @@ namespace DesktopApp.Pages
         {
             for (int i = 0; i < root.data.Count; i++)
             {
-                var subject = root.data[i].subject;
-                var data = new subject
+                try
                 {
-                    recordid = Int32.Parse(subject.recordid),
-                    code = Int32.Parse(subject.code),
-                    name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(subject.name))
-                };
-                SourceCore.RegProjectDatabase.subject.Add(data);
+                    var subject = root.data[i].subject;
+                    var data = new subject
+                    {
+                        recordid = Int32.Parse(subject.recordid),
+                        code = Int32.Parse(subject.code),
+                        name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(subject.name))
+                    };
+                    SourceCore.RegProjectDatabase.subject.Add(data);
+                } catch { }
             }
             try
             {
@@ -214,25 +228,28 @@ namespace DesktopApp.Pages
         {
             for (int i = 0; i < root.data.Count; i++)
             {
-                var regProject = root.data[i];
-                var data = new RegProjectTable
+                try
                 {
-                    metaid = Int64.Parse(regProject.metaid),
-                    recordid = Int64.Parse(regProject.recordid),
-                    code = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.code)),
-                    fullname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.fullname)),
-                    shortname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.shortname)),
-                    idfp = short.Parse(root.data[i].idfp),
-                    fpcode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.fpcode)),
-                    fpname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.fpname)),
-                    curator = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.curator)),
-                    person = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.person)),
-                    kvsr = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.kvsr)),
-                    actualversion = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.actualversion)),
-                    subject = Int32.Parse(regProject.subject.recordid),
-                    roiv = Int64.Parse(regProject.roiv.recordid)
-                };
-                SourceCore.RegProjectDatabase.RegProjectTable.Add(data);
+                    var regProject = root.data[i];
+                    var data = new RegProjectTable
+                    {
+                        metaid = Int64.Parse(regProject.metaid),
+                        recordid = Int64.Parse(regProject.recordid),
+                        code = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.code)),
+                        fullname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.fullname)),
+                        shortname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.shortname)),
+                        idfp = short.Parse(root.data[i].idfp),
+                        fpcode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.fpcode)),
+                        fpname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.fpname)),
+                        curator = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.curator)),
+                        person = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.person)),
+                        kvsr = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.kvsr)),
+                        actualversion = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(regProject.actualversion)),
+                        subject = Int32.Parse(regProject.subject.recordid),
+                        //roiv = Int64.Parse(regProject.roiv.recordid)
+                    };
+                    SourceCore.RegProjectDatabase.RegProjectTable.Add(data);
+                } catch { }
             }
             try
             {
@@ -267,57 +284,60 @@ namespace DesktopApp.Pages
                 var dp = root.data[i];
                 for (int j = 0; j < dp.purposes.Count; j++)
                 {
-                    var purpose = dp.purposes[j];
-                    var data = new purposes
+                    try
                     {
-                        metaid = Int64.Parse(purpose.metaid),
-                        recordid = Int64.Parse(purpose.recordid),
-                        mrkname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.mrkname)),
-                        code = Int32.Parse(purpose.code),
-                        description = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.description)),
-                        typemrk = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.typemrk)),
-                        typevaluemrk = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.typevaluemrk)),
-                        okeicode = Int32.Parse(purpose.okeicode),
-                        okeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.okeiname)),
-                        basicvalueind = DecimalPoint(purpose.basicvalueind),
-                        value2018 = DecimalPoint(purpose.value2018),
-                        value2019 = DecimalPoint(purpose.value2019),
-                        value2020 = DecimalPoint(purpose.value2020),
-                        value2021 = DecimalPoint(purpose.value2021),
-                        value2022 = DecimalPoint(purpose.value2022),
-                        value2023 = DecimalPoint(purpose.value2023),
-                        value2024 = DecimalPoint(purpose.value2024),
-                        value2025 = DecimalPoint(purpose.value2025),
-                        value2026 = DecimalPoint(purpose.value2026),
-                        value2027 = DecimalPoint(purpose.value2027),
-                        value2028 = DecimalPoint(purpose.value2028),
-                        value2029 = DecimalPoint(purpose.value2029),
-                        value2030 = DecimalPoint(purpose.value2030),
-                        dockind = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.dockind)),
-                        approgv = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.approgv)),
-                        approvtdatenpa = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.approvtdatenpa)),
-                        numbernpa = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.numbernpa)),
-                        namenpa = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.namenpa)),
-                        sourcedata = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.sourcedata)),
-                        fpmrkid = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.fpmrkid)),
-                        fpmrkname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.fpmrkname)),
-                        tasksrecordid = Int64.Parse(purpose.tasksrecordid),
-                        taskcode = Int32.Parse(purpose.taskcode),
-                        taskname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.taskname)),
-                        taskrespexec = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.taskrespexec)),
-                        targettype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.targettype)),
-                        ozrname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrname)),
-                        ozrnum = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrnum)),
-                        ozrbeneficiar = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrbeneficiar)),
-                        ozrokeicode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrokeicode)),
-                        ozrokeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrokeiname)),
-                        ozrtype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrtype)),
-                        yearend = Int32.Parse(purpose.yearend),
-                        establishact = Int32.Parse(purpose.establishact),
-                        lvlmrk = Int32.Parse(purpose.lvlmrk),
-                        metaid_rp = Int64.Parse(dp.metaid)
-                    };
-                    SourceCore.RegProjectDatabase.purposes.Add(data);
+                        var purpose = dp.purposes[j];
+                        var data = new purposes
+                        {
+                            metaid = Int64.Parse(purpose.metaid),
+                            recordid = Int64.Parse(purpose.recordid),
+                            mrkname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.mrkname)),
+                            code = Int32.Parse(purpose.code),
+                            description = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.description)),
+                            typemrk = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.typemrk)),
+                            typevaluemrk = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.typevaluemrk)),
+                            okeicode = Int32.Parse(purpose.okeicode),
+                            okeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.okeiname)),
+                            basicvalueind = DecimalPoint(purpose.basicvalueind),
+                            value2018 = DecimalPoint(purpose.value2018),
+                            value2019 = DecimalPoint(purpose.value2019),
+                            value2020 = DecimalPoint(purpose.value2020),
+                            value2021 = DecimalPoint(purpose.value2021),
+                            value2022 = DecimalPoint(purpose.value2022),
+                            value2023 = DecimalPoint(purpose.value2023),
+                            value2024 = DecimalPoint(purpose.value2024),
+                            value2025 = DecimalPoint(purpose.value2025),
+                            value2026 = DecimalPoint(purpose.value2026),
+                            value2027 = DecimalPoint(purpose.value2027),
+                            value2028 = DecimalPoint(purpose.value2028),
+                            value2029 = DecimalPoint(purpose.value2029),
+                            value2030 = DecimalPoint(purpose.value2030),
+                            dockind = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.dockind)),
+                            approgv = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.approgv)),
+                            approvtdatenpa = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.approvtdatenpa)),
+                            numbernpa = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.numbernpa)),
+                            namenpa = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.namenpa)),
+                            sourcedata = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.sourcedata)),
+                            fpmrkid = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.fpmrkid)),
+                            fpmrkname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.fpmrkname)),
+                            tasksrecordid = Int64.Parse(purpose.tasksrecordid),
+                            taskcode = Int32.Parse(purpose.taskcode),
+                            taskname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.taskname)),
+                            taskrespexec = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.taskrespexec)),
+                            targettype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.targettype)),
+                            ozrname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrname)),
+                            ozrnum = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrnum)),
+                            ozrbeneficiar = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrbeneficiar)),
+                            ozrokeicode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrokeicode)),
+                            ozrokeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrokeiname)),
+                            ozrtype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(purpose.ozrtype)),
+                            yearend = Int32.Parse(purpose.yearend),
+                            establishact = Int32.Parse(purpose.establishact),
+                            lvlmrk = Int32.Parse(purpose.lvlmrk),
+                            metaid_rp = Int64.Parse(dp.metaid)
+                        };
+                        SourceCore.RegProjectDatabase.purposes.Add(data);
+                    } catch { }
                 }
             }
             try
@@ -352,27 +372,30 @@ namespace DesktopApp.Pages
                     var purpose = dp.purposes[j];
                     for (int k = 0; k < purpose.purposemonthdistribution.Count; k++)
                     {
-                        var prb = purpose.purposemonthdistribution[k];
-                        var data = new purposemonthdistribution
+                        try
                         {
-                            year = short.Parse(prb.year),
-                            mrk02 = DecimalPoint(prb.mrk02),
-                            mrk03 = DecimalPoint(prb.mrk03),
-                            mrk04 = DecimalPoint(prb.mrk04),
-                            mrk05 = DecimalPoint(prb.mrk05),
-                            mrk06 = DecimalPoint(prb.mrk06),
-                            mrk07 = DecimalPoint(prb.mrk07),
-                            mrk08 = DecimalPoint(prb.mrk08),
-                            mrk09 = DecimalPoint(prb.mrk09),
-                            mrk10 = DecimalPoint(prb.mrk10),
-                            mrk11 = DecimalPoint(prb.mrk11),
-                            mrk12 = DecimalPoint(prb.mrk12),
-                            mrkendyaer = DecimalPoint(prb.mrkendyaer),
-                            reasonsmo = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(prb.reasonsmo)),
-                            recordid = Int64.Parse(prb.recordid),
-                            metaid_purposes = Int64.Parse(purpose.metaid)
-                        };
-                        SourceCore.RegProjectDatabase.purposemonthdistribution.Add(data);
+                            var prb = purpose.purposemonthdistribution[k];
+                            var data = new purposemonthdistribution
+                            {
+                                year = short.Parse(prb.year),
+                                mrk02 = DecimalPoint(prb.mrk02),
+                                mrk03 = DecimalPoint(prb.mrk03),
+                                mrk04 = DecimalPoint(prb.mrk04),
+                                mrk05 = DecimalPoint(prb.mrk05),
+                                mrk06 = DecimalPoint(prb.mrk06),
+                                mrk07 = DecimalPoint(prb.mrk07),
+                                mrk08 = DecimalPoint(prb.mrk08),
+                                mrk09 = DecimalPoint(prb.mrk09),
+                                mrk10 = DecimalPoint(prb.mrk10),
+                                mrk11 = DecimalPoint(prb.mrk11),
+                                mrk12 = DecimalPoint(prb.mrk12),
+                                mrkendyaer = DecimalPoint(prb.mrkendyaer),
+                                reasonsmo = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(prb.reasonsmo)),
+                                recordid = Int64.Parse(prb.recordid),
+                                metaid_purposes = Int64.Parse(purpose.metaid)
+                            };
+                            SourceCore.RegProjectDatabase.purposemonthdistribution.Add(data);
+                        } catch { }
                     }
                 }
             }
@@ -405,21 +428,24 @@ namespace DesktopApp.Pages
                 var dp = root.data[i];
                 for (int j = 0; j < dp.finsupportsall.Count; j++)
                 {
-                    var fs = dp.finsupportsall[j];
-                    var data = new finsupportsall
+                    try
                     {
-                        fo2019 = DecimalPoint(fs.fo2019),
-                        fo2020 = DecimalPoint(fs.fo2020),
-                        fo2021 = DecimalPoint(fs.fo2021),
-                        fo2022 = DecimalPoint(fs.fo2022),
-                        fo2023 = DecimalPoint(fs.fo2023),
-                        fo2024 = DecimalPoint(fs.fo2024),
-                        finsource = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(fs.finsource)),
-                        fo_total = DecimalPoint(fs.fo_total),
-                        finsourcecode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(fs.finsourcecode)),
-                        metaid_rp = Int64.Parse(dp.metaid)
-                    };
-                    SourceCore.RegProjectDatabase.finsupportsall.Add(data);
+                        var fs = dp.finsupportsall[j];
+                        var data = new finsupportsall
+                        {
+                            fo2019 = DecimalPoint(fs.fo2019),
+                            fo2020 = DecimalPoint(fs.fo2020),
+                            fo2021 = DecimalPoint(fs.fo2021),
+                            fo2022 = DecimalPoint(fs.fo2022),
+                            fo2023 = DecimalPoint(fs.fo2023),
+                            fo2024 = DecimalPoint(fs.fo2024),
+                            finsource = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(fs.finsource)),
+                            fo_total = DecimalPoint(fs.fo_total),
+                            finsourcecode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(fs.finsourcecode)),
+                            metaid_rp = Int64.Parse(dp.metaid)
+                        };
+                        SourceCore.RegProjectDatabase.finsupportsall.Add(data);
+                    } catch { }
                 }
             }
             try
@@ -451,20 +477,23 @@ namespace DesktopApp.Pages
                 var dp = root.data[i];
                 for (int j = 0; j < dp.participants.Count; j++)
                 {
-                    var participant = dp.participants[j];
-                    var data = new participants
+                    try
                     {
-                        metaid = Int64.Parse(participant.metaid),
-                        recordid = Int64.Parse(participant.recordid),
-                        fio = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.fio)),
-                        headpost = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.headpost)),
-                        immsupervisor = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.immsupervisor)),
-                        percemploy = Int32.Parse(participant.percemploy),
-                        roleinproj = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.roleinproj)),
-                        codereestr = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.codereestr)),
-                        metaid_rp = Int64.Parse(dp.metaid)
-                    };
-                    SourceCore.RegProjectDatabase.participants.Add(data);
+                        var participant = dp.participants[j];
+                        var data = new participants
+                        {
+                            metaid = Int64.Parse(participant.metaid),
+                            recordid = Int64.Parse(participant.recordid),
+                            fio = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.fio)),
+                            headpost = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.headpost)),
+                            immsupervisor = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.immsupervisor)),
+                            percemploy = Int32.Parse(participant.percemploy),
+                            roleinproj = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.roleinproj)),
+                            codereestr = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(participant.codereestr)),
+                            metaid_rp = Int64.Parse(dp.metaid)
+                        };
+                        SourceCore.RegProjectDatabase.participants.Add(data);
+                    } catch { }
                 }
             }
             try
@@ -496,25 +525,28 @@ namespace DesktopApp.Pages
                 var dp = root.data[i];
                 for (int j = 0; j < dp.tasks.Count; j++)
                 {
-                    var task = dp.tasks[j];
-                    var data = new tasks
+                    try
                     {
-                        metaid = Int64.Parse(task.metaid),
-                        recordid = Int64.Parse(task.recordid),
-                        name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.name)),
-                        code = Int32.Parse(task.code),
-                        nprecordid = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.nprecordid)),
-                        targettype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.targettype)),
-                        ozrrecordid = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrrecordid)),
-                        ozrname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrname)),
-                        ozrnum = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrnum)),
-                        ozrbeneficiar = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrbeneficiar)),
-                        ozrokeicode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrokeicode)),
-                        ozrokeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrokeiname)),
-                        ozrtype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrtype)),
-                        metaid_rp = Int64.Parse(dp.metaid)
-                    };
-                    SourceCore.RegProjectDatabase.tasks.Add(data);
+                        var task = dp.tasks[j];
+                        var data = new tasks
+                        {
+                            metaid = Int64.Parse(task.metaid),
+                            recordid = Int64.Parse(task.recordid),
+                            name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.name)),
+                            code = Int32.Parse(task.code),
+                            nprecordid = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.nprecordid)),
+                            targettype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.targettype)),
+                            ozrrecordid = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrrecordid)),
+                            ozrname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrname)),
+                            ozrnum = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrnum)),
+                            ozrbeneficiar = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrbeneficiar)),
+                            ozrokeicode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrokeicode)),
+                            ozrokeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrokeiname)),
+                            ozrtype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(task.ozrtype)),
+                            metaid_rp = Int64.Parse(dp.metaid)
+                        };
+                        SourceCore.RegProjectDatabase.tasks.Add(data);
+                    } catch { }
                 }
             }
             try
@@ -549,39 +581,42 @@ namespace DesktopApp.Pages
                     var task = dp.tasks[j];
                     for (int k = 0; k < task.results.Count; k++)
                     {
-                        var result = task.results[k];
-                        var data = new results
+                        try
                         {
-                            metaid = Int64.Parse(result.metaid),
-                            recordid = Int64.Parse(result.recordid),
-                            code = Int32.Parse(result.code),
-                            name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.name)),
-                            basicvalue = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.basicvalue)),
-                            monetary_result = Int32.Parse(result.monetary_result),
-                            fpresult = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.fpresult)),
-                            respexec = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.respexec)),
-                            orgrespexec = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.orgrespexec)),
-                            numbercharact = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.numbercharact)),
-                            typeres = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.typeres)),
-                            kindres = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.kindres)),
-                            realizemo = Int32.Parse(result.realizemo),
-                            notsubjfund = Int32.Parse(result.notsubjfund),
-                            subjfund = Int32.Parse(result.subjfund),
-                            iskey = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.iskey)),
-                            okeicode = short.Parse(result.okeicode),
-                            okeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.okeiname)),
-                            sourcedata = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.sourcedata)),
-                            cumulative = Int32.Parse(result.cumulative),
-                            cbaccumulationtype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.cbaccumulationtype)),
-                            typevaluemrk = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.typevaluemrk)),
-                            costwaycode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.costwaycode)),
-                            directionexpenses = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.directionexpenses)),
-                            direxpcoderesf = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.direxpcoderesf)),
-                            direxpnameresf = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.direxpnameresf)),
-                            executpost = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.executpost)),
-                            metaid_task = Int64.Parse(task.metaid)
-                        };
-                        SourceCore.RegProjectDatabase.results.Add(data);
+                            var result = task.results[k];
+                            var data = new results
+                            {
+                                metaid = Int64.Parse(result.metaid),
+                                recordid = Int64.Parse(result.recordid),
+                                code = Int32.Parse(result.code),
+                                name = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.name)),
+                                basicvalue = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.basicvalue)),
+                                monetary_result = Int32.Parse(result.monetary_result),
+                                fpresult = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.fpresult)),
+                                respexec = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.respexec)),
+                                orgrespexec = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.orgrespexec)),
+                                numbercharact = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.numbercharact)),
+                                typeres = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.typeres)),
+                                kindres = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.kindres)),
+                                realizemo = Int32.Parse(result.realizemo),
+                                notsubjfund = Int32.Parse(result.notsubjfund),
+                                subjfund = Int32.Parse(result.subjfund),
+                                iskey = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.iskey)),
+                                okeicode = short.Parse(result.okeicode),
+                                okeiname = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.okeiname)),
+                                sourcedata = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.sourcedata)),
+                                cumulative = Int32.Parse(result.cumulative),
+                                cbaccumulationtype = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.cbaccumulationtype)),
+                                typevaluemrk = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.typevaluemrk)),
+                                costwaycode = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.costwaycode)),
+                                directionexpenses = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.directionexpenses)),
+                                direxpcoderesf = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.direxpcoderesf)),
+                                direxpnameresf = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.direxpnameresf)),
+                                executpost = Encoding.UTF8.GetString(Encoding.GetEncoding("Windows-1251").GetBytes(result.executpost)),
+                                metaid_task = Int64.Parse(task.metaid)
+                            };
+                            SourceCore.RegProjectDatabase.results.Add(data);
+                        } catch { }
                     }
                 }
             }

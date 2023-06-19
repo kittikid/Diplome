@@ -335,14 +335,6 @@
     <Resource Include="Windows\WinImages\Logo.ico" />
     <Resource Include="Images\Logo.ico" />
     <Resource Include="Images\Exit.png" />
-    <Content Include="Windows\WinImages\Logo.svg" />
-    <Resource Include="Windows\WinImages\Logo.png" />
-    <Resource Include="Images\settings.png" />
-    <Resource Include="Images\gear.png" />
-    <Resource Include="Images\setting.png" />
-    <Resource Include="Images\control.png" />
-    <Resource Include="Images\RegProj.jpg" />
-    <Resource Include="Images\Logo.png" />
     <Content Include="Base\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -353,9 +345,14 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\jquery-1.7-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.7.js" />
-    <Content Include="Scripts\jquery-1.7.min.js" />
+    <Content Include="Windows\WinImages\Logo.svg" />
+    <Resource Include="Windows\WinImages\Logo.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\gear.png" />
+    <Resource Include="Images\setting.png" />
+    <Resource Include="Images\control.png" />
+    <Resource Include="Images\RegProj.jpg" />
+    <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
