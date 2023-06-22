@@ -44,117 +44,117 @@
                                                                             <StackPanel>
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Код: " FontSize="11" FontWeight="Bold"/>
-                                                                                    <TextBlock Text="{Binding Code}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Code}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Описание: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Description}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Description}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Тип МРК: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Typemrk}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Typemrk}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение типа МРК: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Typevaluemrk}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Typevaluemrk}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Код OKEI: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Okeicode}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Okeicode}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Имя OKEI: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Okeiname}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Okeiname}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2018: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2018}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2018}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2019: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2019}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2019}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2020: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2020}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2020}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2021: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2021}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2021}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2022: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2022}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2022}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2023: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2023}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2023}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2024: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2024}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2024}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2025: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2025}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2025}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2026: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2026}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2026}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2027: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2027}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2027}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2028: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2028}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2028}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2029: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2029}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2029}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Значение за 2030: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Value2030}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Value2030}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Реквезиты НПА: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Numbernpa}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Numbernpa}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Источник данных: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Sourcedata}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Sourcedata}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Название показателя: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Mrkname}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Mrkname}" FontSize="11" Width="450"/>
                                                                                 </StackPanel>
 
                                                                                 <StackPanel Orientation="Horizontal" Margin="5,2,0,0">
                                                                                     <TextBlock Text="Название показателя на федеральном уровне: " FontSize="11" FontWeight="Bold" />
-                                                                                    <TextBlock Text="{Binding Fpmrkname}" FontSize="11" Width="500"/>
+                                                                                    <TextBlock Text="{Binding Fpmrkname}" FontSize="11" Width="350"/>
                                                                                 </StackPanel>
                                                                             </StackPanel>
                                                                         </Border>

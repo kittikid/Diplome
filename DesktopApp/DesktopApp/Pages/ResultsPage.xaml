@@ -23,19 +23,19 @@
                                                 <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Код: " FontSize="10" FontWeight="Bold"/>
-                                                        <TextBlock Text="{Binding Code}" FontSize="10" TextWrapping="WrapWithOverflow" Width="600"/>
+                                                        <TextBlock Text="{Binding Code}" FontSize="10" TextWrapping="Wrap" Width="500"/>
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Наименование: " FontSize="10" FontWeight="Bold"/>
-                                                        <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap" Width="600"/>
+                                                        <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap" Width="500"/>
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Ответственный исполнитель: " FontSize="10" FontWeight="Bold"/>
-                                                        <TextBlock Text="{Binding Respexec}" FontSize="10" TextWrapping="Wrap" Width="600"/>
+                                                        <TextBlock Text="{Binding Respexec}" FontSize="10" TextWrapping="Wrap" Width="500"/>
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Характеристика: " FontSize="10" FontWeight="Bold"/>
-                                                        <TextBlock Text="{Binding Numbercharact}" FontSize="10" TextWrapping="Wrap" Width="600"/>
+                                                        <TextBlock Text="{Binding Numbercharact}" FontSize="10" TextWrapping="Wrap" Width="500"/>
                                                     </StackPanel>
                                                     <!--<Border BorderBrush="#8792b2" BorderThickness="1" 
                                                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto" Height="Auto">
