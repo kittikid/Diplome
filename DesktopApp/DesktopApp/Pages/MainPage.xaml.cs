@@ -126,9 +126,10 @@ namespace DesktopApp.Pages
 
         private void UrlParse()
         {
-            //3 переменных для ссылки
             string url = "https://budget.gov.ru/epbs/registry/7710168360-REGIONALPROJECT/data";
-            Root jsonObject = JsonConvert.DeserializeObject<Root>(new WebClient().DownloadString(url));
+            WebClient client = new WebClient();
+            //client.Proxy.Credentials = new NetworkCredential(@"4is2", @"edu-639", "192.168.0.100");
+            Root jsonObject = JsonConvert.DeserializeObject<Root>(client.DownloadString(url));
           
             //---1---
             RoivUpload(jsonObject);
